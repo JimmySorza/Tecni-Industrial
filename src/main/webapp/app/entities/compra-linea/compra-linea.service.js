@@ -10,6 +10,11 @@
         var resourceUrl =  'api/compra-lineas/:id';
 
         return $resource(resourceUrl, {}, {
+            'queryByCompra':{
+                url: 'api/compra-lineas/compras/:id',
+                method: 'GET',
+                isArray: true
+            },
             'query': { method: 'GET', isArray: true},
             'get': {
                 method: 'GET',

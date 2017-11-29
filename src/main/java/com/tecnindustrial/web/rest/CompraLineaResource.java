@@ -104,6 +104,21 @@ public class CompraLineaResource {
     }
 
     /**
+     * GET  /compra-lineas/compras/{compraId} : get all the compraLineas by compra id.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of actions in body
+     */
+    @GetMapping("/compra-lineas/compras/{compraId}")
+    @Timed
+    public List<CompraLinea> getAllCompraLineasForCompra(@PathVariable Long compraId){
+        log.debug("REST request to get all CompraLineas for compra: {}", compraId);
+
+        List<CompraLinea> actions = compraLineaRepository.findByCompraId(compraId) ;
+        return actions;
+    }
+
+
+    /**
      * DELETE  /compra-lineas/:id : delete the "id" compraLinea.
      *
      * @param id the id of the compraLinea to delete

@@ -13,6 +13,17 @@
         vm.compra = entity;
         vm.previousState = previousState.name;
 
+        vm.compraLineas= [];
+
+        loadAll();
+
+        function loadAll() {
+            CompraLinea.queryByCompra({id: vm.compra.id}, function (result) {
+                vm.compraLineas= result;
+                vm.searchQuery = null;
+            });
+        }
+
         var unsubscribe = $rootScope.$on('tecniIndustrialApp:compraUpdate', function(event, result) {
             vm.compra = result;
         });
