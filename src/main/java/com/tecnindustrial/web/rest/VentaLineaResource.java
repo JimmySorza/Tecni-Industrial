@@ -104,6 +104,20 @@ public class VentaLineaResource {
     }
 
     /**
+     * GET  /venta-lineas/ventas/{ventaId} : get all the ventaLineas by venta id.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of actions in body
+     */
+    @GetMapping("/venta-lineas/ventas/{ventaId}")
+    @Timed
+    public List<VentaLinea> getAllVentaLineaForVenta(@PathVariable long ventaId){
+        log.debug("REST request to get all VentaLineas for venta: {}", ventaId);
+
+        List<VentaLinea> actions = ventaLineaRepository.findByVentaId(ventaId);
+        return actions;
+    }
+
+    /**
      * DELETE  /venta-lineas/:id : delete the "id" ventaLinea.
      *
      * @param id the id of the ventaLinea to delete

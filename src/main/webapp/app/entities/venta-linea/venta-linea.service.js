@@ -10,6 +10,12 @@
         var resourceUrl =  'api/venta-lineas/:id';
 
         return $resource(resourceUrl, {}, {
+            'queryByVenta':{
+                url:'api/venta-lineas/ventas/:id',
+                method: 'GET',
+                isArray: true
+            },
+
             'query': { method: 'GET', isArray: true},
             'get': {
                 method: 'GET',
