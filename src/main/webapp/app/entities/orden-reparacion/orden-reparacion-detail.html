@@ -1,0 +1,67 @@
+
+<div>
+    <h2><span>Orden Reparacion</span> {{vm.ordenReparacion.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Fecha</span></dt>
+        <dd>
+            <span>{{vm.ordenReparacion.fecha | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Garantia</span></dt>
+        <dd>
+            <span>{{vm.ordenReparacion.garantia}}</span>
+        </dd>
+        <dt><span>Maquina</span></dt>
+        <dd>
+            <span>{{vm.ordenReparacion.maquina}}</span>
+        </dd>
+        <dt><span>Falla</span></dt>
+        <dd>
+            <span>{{vm.ordenReparacion.falla}}</span>
+        </dd>
+        <dt><span>Fecha Prometido</span></dt>
+        <dd>
+            <span>{{vm.ordenReparacion.fechaPrometido | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Accesorios</span></dt>
+        <dd>
+            <span>{{vm.ordenReparacion.accesorios}}</span>
+        </dd>
+        <dt><span>Observaciones</span></dt>
+        <dd>
+            <span>{{vm.ordenReparacion.observaciones}}</span>
+        </dd>
+        <dt><span>Informe Tecnico</span></dt>
+        <dd>
+            <span>{{vm.ordenReparacion.informeTecnico}}</span>
+        </dd>
+        <dt><span>Total</span></dt>
+        <dd>
+            <span>{{vm.ordenReparacion.total}}</span>
+        </dd>
+        <dt><span>Tecnico</span></dt>
+        <dd>
+            <a ui-sref="tecnico-detail({id:vm.ordenReparacion.tecnico.id})">{{vm.ordenReparacion.tecnico.id}}</a>
+        </dd>
+        <dt><span>Estado</span></dt>
+        <dd>
+            <a ui-sref="estado-detail({id:vm.ordenReparacion.estado.id})">{{vm.ordenReparacion.estado.id}}</a>
+        </dd>
+        <dt><span>Cliente</span></dt>
+        <dd>
+            <a ui-sref="cliente-detail({id:vm.ordenReparacion.cliente.id})">{{vm.ordenReparacion.cliente.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="orden-reparacion-detail.edit({id:vm.ordenReparacion.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

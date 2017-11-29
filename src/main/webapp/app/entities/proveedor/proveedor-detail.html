@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span>Proveedor</span> {{vm.proveedor.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Nit</span></dt>
+        <dd>
+            <span>{{vm.proveedor.nit}}</span>
+        </dd>
+        <dt><span>Razon Social</span></dt>
+        <dd>
+            <span>{{vm.proveedor.razonSocial}}</span>
+        </dd>
+        <dt><span>Email</span></dt>
+        <dd>
+            <span>{{vm.proveedor.email}}</span>
+        </dd>
+        <dt><span>Telefono</span></dt>
+        <dd>
+            <span>{{vm.proveedor.telefono}}</span>
+        </dd>
+        <dt><span>Direccion</span></dt>
+        <dd>
+            <span>{{vm.proveedor.direccion}}</span>
+        </dd>
+        <dt><span>Ciudad</span></dt>
+        <dd>
+            <span>{{vm.proveedor.ciudad}}</span>
+        </dd>
+        <dt><span>Departamento</span></dt>
+        <dd>
+            <span>{{vm.proveedor.departamento}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="proveedor-detail.edit({id:vm.proveedor.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

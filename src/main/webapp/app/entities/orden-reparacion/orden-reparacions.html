@@ -1,0 +1,88 @@
+<div>
+    <h2>Orden Reparacions</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="orden-reparacion.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Orden Reparacion
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fecha"><span>Fecha</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="garantia"><span>Garantia</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="maquina"><span>Maquina</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="falla"><span>Falla</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fechaPrometido"><span>Fecha Prometido</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="accesorios"><span>Accesorios</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="observaciones"><span>Observaciones</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="informeTecnico"><span>Informe Tecnico</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="total"><span>Total</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tecnico.id"><span>Tecnico</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="estado.id"><span>Estado</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cliente.id"><span>Cliente</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="ordenReparacion in vm.ordenReparacions track by ordenReparacion.id">
+                    <td><a ui-sref="orden-reparacion-detail({id:ordenReparacion.id})">{{ordenReparacion.id}}</a></td>
+                        <td>{{ordenReparacion.fecha | date:'mediumDate'}}</td>
+                    <td>{{ordenReparacion.garantia}}</td>
+                    <td>{{ordenReparacion.maquina}}</td>
+                    <td>{{ordenReparacion.falla}}</td>
+                        <td>{{ordenReparacion.fechaPrometido | date:'mediumDate'}}</td>
+                    <td>{{ordenReparacion.accesorios}}</td>
+                    <td>{{ordenReparacion.observaciones}}</td>
+                    <td>{{ordenReparacion.informeTecnico}}</td>
+                    <td>{{ordenReparacion.total}}</td>
+                    <td>
+                        <a ui-sref="tecnico-detail({id:ordenReparacion.tecnico.id})">{{ordenReparacion.tecnico.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="estado-detail({id:ordenReparacion.estado.id})">{{ordenReparacion.estado.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="cliente-detail({id:ordenReparacion.cliente.id})">{{ordenReparacion.cliente.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="orden-reparacion-detail({id:ordenReparacion.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="orden-reparacion.edit({id:ordenReparacion.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="orden-reparacion.delete({id:ordenReparacion.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

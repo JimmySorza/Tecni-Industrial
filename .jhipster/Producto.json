@@ -1,0 +1,42 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "categoria",
+            "otherEntityName": "categoria",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "codigo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "precioCosto",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "precioVenta",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "existencia",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20171129080150",
+    "entityTableName": "producto",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

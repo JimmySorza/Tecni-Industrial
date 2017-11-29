@@ -1,0 +1,68 @@
+<div>
+    <h2>Proveedors</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="proveedor.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Proveedor
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Nit</span></th>
+                    <th><span>Razon Social</span></th>
+                    <th><span>Email</span></th>
+                    <th><span>Telefono</span></th>
+                    <th><span>Direccion</span></th>
+                    <th><span>Ciudad</span></th>
+                    <th><span>Departamento</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="proveedor in vm.proveedors track by proveedor.id">
+                    <td><a ui-sref="proveedor-detail({id:proveedor.id})">{{proveedor.id}}</a></td>
+                    <td>{{proveedor.nit}}</td>
+                    <td>{{proveedor.razonSocial}}</td>
+                    <td>{{proveedor.email}}</td>
+                    <td>{{proveedor.telefono}}</td>
+                    <td>{{proveedor.direccion}}</td>
+                    <td>{{proveedor.ciudad}}</td>
+                    <td>{{proveedor.departamento}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="proveedor-detail({id:proveedor.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="proveedor.edit({id:proveedor.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="proveedor.delete({id:proveedor.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

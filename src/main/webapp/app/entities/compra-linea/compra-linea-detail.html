@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span>Compra Linea</span> {{vm.compraLinea.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Cantidad</span></dt>
+        <dd>
+            <span>{{vm.compraLinea.cantidad}}</span>
+        </dd>
+        <dt><span>Compra</span></dt>
+        <dd>
+            <a ui-sref="compra-detail({id:vm.compraLinea.compra.id})">{{vm.compraLinea.compra.id}}</a>
+        </dd>
+        <dt><span>Producto</span></dt>
+        <dd>
+            <a ui-sref="producto-detail({id:vm.compraLinea.producto.id})">{{vm.compraLinea.producto.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="compra-linea-detail.edit({id:vm.compraLinea.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

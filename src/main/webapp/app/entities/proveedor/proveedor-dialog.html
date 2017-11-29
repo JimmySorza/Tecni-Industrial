@@ -1,0 +1,80 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myProveedorLabel">Create or edit a Proveedor</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.proveedor.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.proveedor.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_nit">Nit</label>
+            <input type="text" class="form-control" name="nit" id="field_nit"
+                    ng-model="vm.proveedor.nit"
+                    required/>
+            <div ng-show="editForm.nit.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.nit.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_razonSocial">Razon Social</label>
+            <input type="text" class="form-control" name="razonSocial" id="field_razonSocial"
+                    ng-model="vm.proveedor.razonSocial"
+                    required/>
+            <div ng-show="editForm.razonSocial.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.razonSocial.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                    ng-model="vm.proveedor.email"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_telefono">Telefono</label>
+            <input type="text" class="form-control" name="telefono" id="field_telefono"
+                    ng-model="vm.proveedor.telefono"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_direccion">Direccion</label>
+            <input type="text" class="form-control" name="direccion" id="field_direccion"
+                    ng-model="vm.proveedor.direccion"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_ciudad">Ciudad</label>
+            <input type="text" class="form-control" name="ciudad" id="field_ciudad"
+                    ng-model="vm.proveedor.ciudad"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_departamento">Departamento</label>
+            <input type="text" class="form-control" name="departamento" id="field_departamento"
+                    ng-model="vm.proveedor.departamento"
+                    />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

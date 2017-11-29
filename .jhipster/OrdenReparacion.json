@@ -1,0 +1,76 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "linea",
+            "otherEntityName": "ordenLinea",
+            "otherEntityRelationshipName": "ordenReparacion"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "tecnico",
+            "otherEntityName": "tecnico",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "estado",
+            "otherEntityName": "estado",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "cliente",
+            "otherEntityName": "cliente",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "fecha",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "garantia",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "maquina",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "falla",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fechaPrometido",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "accesorios",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "observaciones",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "informeTecnico",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "total",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20171129080151",
+    "entityTableName": "orden_reparacion",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

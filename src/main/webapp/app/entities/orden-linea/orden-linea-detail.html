@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span>Orden Linea</span> {{vm.ordenLinea.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Cantidad</span></dt>
+        <dd>
+            <span>{{vm.ordenLinea.cantidad}}</span>
+        </dd>
+        <dt><span>Orden Reparacion</span></dt>
+        <dd>
+            <a ui-sref="orden-reparacion-detail({id:vm.ordenLinea.ordenReparacion.id})">{{vm.ordenLinea.ordenReparacion.id}}</a>
+        </dd>
+        <dt><span>Producto</span></dt>
+        <dd>
+            <a ui-sref="producto-detail({id:vm.ordenLinea.producto.id})">{{vm.ordenLinea.producto.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="orden-linea-detail.edit({id:vm.ordenLinea.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,51 @@
+
+<div>
+    <h2><span>Cliente</span> {{vm.cliente.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Cedula</span></dt>
+        <dd>
+            <span>{{vm.cliente.cedula}}</span>
+        </dd>
+        <dt><span>Nombre</span></dt>
+        <dd>
+            <span>{{vm.cliente.nombre}}</span>
+        </dd>
+        <dt><span>Apellido</span></dt>
+        <dd>
+            <span>{{vm.cliente.apellido}}</span>
+        </dd>
+        <dt><span>Email</span></dt>
+        <dd>
+            <span>{{vm.cliente.email}}</span>
+        </dd>
+        <dt><span>Telefono</span></dt>
+        <dd>
+            <span>{{vm.cliente.telefono}}</span>
+        </dd>
+        <dt><span>Direccion</span></dt>
+        <dd>
+            <span>{{vm.cliente.direccion}}</span>
+        </dd>
+        <dt><span>Ciudad</span></dt>
+        <dd>
+            <span>{{vm.cliente.ciudad}}</span>
+        </dd>
+        <dt><span>Departamento</span></dt>
+        <dd>
+            <span>{{vm.cliente.departamento}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="cliente-detail.edit({id:vm.cliente.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

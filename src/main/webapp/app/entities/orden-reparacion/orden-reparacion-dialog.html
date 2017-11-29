@@ -1,0 +1,111 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myOrdenReparacionLabel">Create or edit a Orden Reparacion</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.ordenReparacion.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.ordenReparacion.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_fecha">Fecha</label>
+                <div class="input-group">
+                    <input id="field_fecha" type="text" class="form-control" name="fecha" uib-datepicker-popup="{{dateformat}}" ng-model="vm.ordenReparacion.fecha" is-open="vm.datePickerOpenStatus.fecha"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fecha')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_garantia">Garantia</label>
+                <input type="checkbox" name="garantia" id="field_garantia"
+                          ng-model="vm.ordenReparacion.garantia"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_maquina">Maquina</label>
+            <input type="text" class="form-control" name="maquina" id="field_maquina"
+                    ng-model="vm.ordenReparacion.maquina"
+                    required/>
+            <div ng-show="editForm.maquina.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.maquina.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_falla">Falla</label>
+            <input type="text" class="form-control" name="falla" id="field_falla"
+                    ng-model="vm.ordenReparacion.falla"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_fechaPrometido">Fecha Prometido</label>
+                <div class="input-group">
+                    <input id="field_fechaPrometido" type="text" class="form-control" name="fechaPrometido" uib-datepicker-popup="{{dateformat}}" ng-model="vm.ordenReparacion.fechaPrometido" is-open="vm.datePickerOpenStatus.fechaPrometido"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fechaPrometido')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_accesorios">Accesorios</label>
+            <input type="text" class="form-control" name="accesorios" id="field_accesorios"
+                    ng-model="vm.ordenReparacion.accesorios"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_observaciones">Observaciones</label>
+            <input type="text" class="form-control" name="observaciones" id="field_observaciones"
+                    ng-model="vm.ordenReparacion.observaciones"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_informeTecnico">Informe Tecnico</label>
+            <input type="text" class="form-control" name="informeTecnico" id="field_informeTecnico"
+                    ng-model="vm.ordenReparacion.informeTecnico"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_total">Total</label>
+            <input type="number" class="form-control" name="total" id="field_total"
+                    ng-model="vm.ordenReparacion.total"
+                    />
+        </div>
+
+        <div class="form-group">
+            <label for="field_tecnico">Tecnico</label>
+            <select class="form-control" id="field_tecnico" name="tecnico" ng-model="vm.ordenReparacion.tecnico" ng-options="tecnico as tecnico.id for tecnico in vm.tecnicos track by tecnico.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_estado">Estado</label>
+            <select class="form-control" id="field_estado" name="estado" ng-model="vm.ordenReparacion.estado" ng-options="estado as estado.id for estado in vm.estados track by estado.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_cliente">Cliente</label>
+            <select class="form-control" id="field_cliente" name="cliente" ng-model="vm.ordenReparacion.cliente" ng-options="cliente as cliente.id for cliente in vm.clientes track by cliente.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

@@ -44,6 +44,21 @@ public class CacheConfiguration {
             cm.createCache(com.tecnindustrial.domain.PersistentToken.class.getName(), jcacheConfiguration);
             cm.createCache(com.tecnindustrial.domain.User.class.getName() + ".persistentTokens", jcacheConfiguration);
             cm.createCache(com.tecnindustrial.domain.SocialUserConnection.class.getName(), jcacheConfiguration);
+            cm.createCache(com.tecnindustrial.domain.Categoria.class.getName(), jcacheConfiguration);
+            cm.createCache(com.tecnindustrial.domain.Producto.class.getName(), jcacheConfiguration);
+            cm.createCache(com.tecnindustrial.domain.OrdenReparacion.class.getName(), jcacheConfiguration);
+            cm.createCache(com.tecnindustrial.domain.OrdenReparacion.class.getName() + ".lineas", jcacheConfiguration);
+            cm.createCache(com.tecnindustrial.domain.OrdenLinea.class.getName(), jcacheConfiguration);
+            cm.createCache(com.tecnindustrial.domain.Tecnico.class.getName(), jcacheConfiguration);
+            cm.createCache(com.tecnindustrial.domain.Estado.class.getName(), jcacheConfiguration);
+            cm.createCache(com.tecnindustrial.domain.Cliente.class.getName(), jcacheConfiguration);
+            cm.createCache(com.tecnindustrial.domain.Venta.class.getName(), jcacheConfiguration);
+            cm.createCache(com.tecnindustrial.domain.Venta.class.getName() + ".lineas", jcacheConfiguration);
+            cm.createCache(com.tecnindustrial.domain.VentaLinea.class.getName(), jcacheConfiguration);
+            cm.createCache(com.tecnindustrial.domain.Proveedor.class.getName(), jcacheConfiguration);
+            cm.createCache(com.tecnindustrial.domain.Compra.class.getName(), jcacheConfiguration);
+            cm.createCache(com.tecnindustrial.domain.Compra.class.getName() + ".lineas", jcacheConfiguration);
+            cm.createCache(com.tecnindustrial.domain.CompraLinea.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

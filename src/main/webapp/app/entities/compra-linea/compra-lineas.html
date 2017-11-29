@@ -1,0 +1,64 @@
+<div>
+    <h2>Compra Lineas</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="compra-linea.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Compra Linea
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Cantidad</span></th>
+                    <th><span>Compra</span></th>
+                    <th><span>Producto</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="compraLinea in vm.compraLineas track by compraLinea.id">
+                    <td><a ui-sref="compra-linea-detail({id:compraLinea.id})">{{compraLinea.id}}</a></td>
+                    <td>{{compraLinea.cantidad}}</td>
+                    <td>
+                        <a ui-sref="compra-detail({id:compraLinea.compra.id})">{{compraLinea.compra.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="producto-detail({id:compraLinea.producto.id})">{{compraLinea.producto.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="compra-linea-detail({id:compraLinea.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="compra-linea.edit({id:compraLinea.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="compra-linea.delete({id:compraLinea.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
