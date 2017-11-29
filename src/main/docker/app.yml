@@ -1,0 +1,14 @@
+version: '2'
+services:
+    tecni_industrial-app:
+        image: tecni_industrial
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://tecni_industrial-postgresql:5432/Tecni_Industrial
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    tecni_industrial-postgresql:
+        extends:
+            file: postgresql.yml
+            service: tecni_industrial-postgresql

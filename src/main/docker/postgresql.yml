@@ -1,0 +1,11 @@
+version: '2'
+services:
+    tecni_industrial-postgresql:
+        image: postgres:9.6.5
+        # volumes:
+        #     - ~/volumes/jhipster/Tecni_Industrial/postgresql/:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=Tecni_Industrial
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
