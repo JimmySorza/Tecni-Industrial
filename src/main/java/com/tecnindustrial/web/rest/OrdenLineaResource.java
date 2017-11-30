@@ -104,6 +104,20 @@ public class OrdenLineaResource {
     }
 
     /**
+     * GET  /orden-lineas/compras/{ordenReparacionId} : get all the ordenLineas by ordenReparacion id.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of actions in body
+     */
+    @GetMapping("/orden-lineas/orden-reparacions/{ordenReparacionId}")
+    @Timed
+    public List<OrdenLinea> getAllOrdenLineasForOrdenReparacion(@PathVariable Long ordenReparacionId){
+        log.debug("REST request to get all OrdenLineas for ordenReparacion: {}",ordenReparacionId);
+
+        List<OrdenLinea> actions = ordenLineaRepository.findByOrdenReparacionId(ordenReparacionId) ;
+        return actions;
+    }
+
+    /**
      * DELETE  /orden-lineas/:id : delete the "id" ordenLinea.
      *
      * @param id the id of the ordenLinea to delete

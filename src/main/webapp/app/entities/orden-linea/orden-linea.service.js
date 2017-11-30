@@ -10,6 +10,11 @@
         var resourceUrl =  'api/orden-lineas/:id';
 
         return $resource(resourceUrl, {}, {
+            'queryByOrdenReparacion':{
+                url: 'api/orden-lineas/orden-reparacions/:id',
+                method: 'GET',
+                isArray: true
+            },
             'query': { method: 'GET', isArray: true},
             'get': {
                 method: 'GET',

@@ -13,6 +13,17 @@
         vm.ordenReparacion = entity;
         vm.previousState = previousState.name;
 
+        vm.ordenLineas=[];
+
+        loadAll();
+
+        function loadAll() {
+            OrdenLinea.queryByOrdenReparacion({id: vm.ordenReparacion.id}, function (result) {
+                vm.ordenLineas=result;
+                vm.searchQuery = null;
+            });
+        }
+
         var unsubscribe = $rootScope.$on('tecniIndustrialApp:ordenReparacionUpdate', function(event, result) {
             vm.ordenReparacion = result;
         });
