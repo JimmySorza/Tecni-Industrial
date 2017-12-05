@@ -7,7 +7,7 @@
                 <button class="btn btn-primary" ui-sref="estado.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span >
-                        Create new Estado
+                        Crear nuevo Estado
                     </span>
                 </button>
             </div>
@@ -18,14 +18,14 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr>
-                    <th><span>ID</span></th>
+
                     <th><span>Nombre</span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="estado in vm.estados track by estado.id">
-                    <td><a ui-sref="estado-detail({id:estado.id})">{{estado.id}}</a></td>
+
                     <td>{{estado.nombre}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

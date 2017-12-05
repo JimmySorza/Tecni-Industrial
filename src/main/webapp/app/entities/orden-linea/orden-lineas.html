@@ -7,7 +7,7 @@
                 <button class="btn btn-primary" ui-sref="orden-linea.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span >
-                        Create new Orden Linea
+                        Crear nueva Linea de orden
                     </span>
                 </button>
             </div>
@@ -18,7 +18,7 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr>
-                    <th><span>ID</span></th>
+
                     <th><span>Cantidad</span></th>
                     <th><span>Orden Reparacion</span></th>
                     <th><span>Producto</span></th>
@@ -27,7 +27,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="ordenLinea in vm.ordenLineas track by ordenLinea.id">
-                    <td><a ui-sref="orden-linea-detail({id:ordenLinea.id})">{{ordenLinea.id}}</a></td>
+
                     <td>{{ordenLinea.cantidad}}</td>
                     <td>
                         <a ui-sref="orden-reparacion-detail({id:ordenLinea.ordenReparacion.id})">{{ordenLinea.ordenReparacion.id}}</a>

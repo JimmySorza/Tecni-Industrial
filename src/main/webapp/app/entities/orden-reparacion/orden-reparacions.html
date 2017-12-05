@@ -1,5 +1,5 @@
 <div>
-    <h2>Orden Reparacions</h2>
+    <h2>Orden de Reparaciones</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
@@ -7,7 +7,7 @@
                 <button class="btn btn-primary" ui-sref="orden-reparacion.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span >
-                        Create new Orden Reparacion
+                        Crear nueva Orden Reparacion
                     </span>
                 </button>
             </div>
@@ -18,7 +18,7 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+
                     <th jh-sort-by="fecha"><span>Fecha</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="garantia"><span>Garantia</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="maquina"><span>Maquina</span> <span class="glyphicon glyphicon-sort"></span></th>
@@ -36,7 +36,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="ordenReparacion in vm.ordenReparacions track by ordenReparacion.id">
-                    <td><a ui-sref="orden-reparacion-detail({id:ordenReparacion.id})">{{ordenReparacion.id}}</a></td>
+
                         <td>{{ordenReparacion.fecha | date:'mediumDate'}}</td>
                     <td>{{ordenReparacion.garantia}}</td>
                     <td>{{ordenReparacion.maquina}}</td>

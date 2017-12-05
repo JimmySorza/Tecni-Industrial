@@ -7,7 +7,7 @@
                 <button class="btn btn-primary" ui-sref="producto.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span >
-                        Create new Producto
+                        Crear Producto
                     </span>
                 </button>
             </div>
@@ -18,7 +18,7 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
-                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+
                     <th jh-sort-by="codigo"><span>Codigo</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="nombre"><span>Nombre</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="precioCosto"><span>Precio Costo</span> <span class="glyphicon glyphicon-sort"></span></th>
@@ -30,7 +30,7 @@
             </thead>
             <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
                 <tr ng-repeat="producto in vm.productos track by producto.id">
-                    <td><a ui-sref="producto-detail({id:producto.id})">{{producto.id}}</a></td>
+
                     <td>{{producto.codigo}}</td>
                     <td>{{producto.nombre}}</td>
                     <td>{{producto.precioCosto}}</td>

@@ -7,7 +7,7 @@
                 <button class="btn btn-primary" ui-sref="compra.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span >
-                        Create new Compra
+                        Crear nueva Compra
                     </span>
                 </button>
             </div>
@@ -18,7 +18,7 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr>
-                    <th><span>ID</span></th>
+
                     <th><span>Fecha</span></th>
                     <th><span>Numero</span></th>
                     <th><span>Total</span></th>
@@ -28,7 +28,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="compra in vm.compras track by compra.id">
-                    <td><a ui-sref="compra-detail({id:compra.id})">{{compra.id}}</a></td>
+
                         <td>{{compra.fecha | date:'mediumDate'}}</td>
                     <td>{{compra.numero}}</td>
                     <td>{{compra.total}}</td>

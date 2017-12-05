@@ -7,7 +7,7 @@
                 <button class="btn btn-primary" ui-sref="venta.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span >
-                        Create new Venta
+                        Crear nueva Venta
                     </span>
                 </button>
             </div>
@@ -18,7 +18,7 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr>
-                    <th><span>ID</span></th>
+
                     <th><span>Fecha</span></th>
                     <th><span>Numero</span></th>
                     <th><span>Total</span></th>
@@ -28,7 +28,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="venta in vm.ventas track by venta.id">
-                    <td><a ui-sref="venta-detail({id:venta.id})">{{venta.id}}</a></td>
+
                         <td>{{venta.fecha | date:'mediumDate'}}</td>
                     <td>{{venta.numero}}</td>
                     <td>{{venta.total}}</td>

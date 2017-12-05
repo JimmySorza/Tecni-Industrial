@@ -7,7 +7,7 @@
                 <button class="btn btn-primary" ui-sref="categoria.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span >
-                        Create new Categoria
+                        Crear nueva Categoria
                     </span>
                 </button>
             </div>
@@ -18,14 +18,14 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+
                     <th jh-sort-by="descripcion"><span>Descripcion</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="categoria in vm.categorias track by categoria.id">
-                    <td><a ui-sref="categoria-detail({id:categoria.id})">{{categoria.id}}</a></td>
+
                     <td>{{categoria.descripcion}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

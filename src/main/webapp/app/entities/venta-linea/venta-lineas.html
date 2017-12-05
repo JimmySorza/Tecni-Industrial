@@ -7,7 +7,7 @@
                 <button class="btn btn-primary" ui-sref="venta-linea.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span >
-                        Create new Venta Linea
+                        Crear nueva Linea de venta
                     </span>
                 </button>
             </div>
@@ -18,7 +18,7 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr>
-                    <th><span>ID</span></th>
+
                     <th><span>Cantidad</span></th>
                     <th><span>Venta</span></th>
                     <th><span>Producto</span></th>
@@ -27,7 +27,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="ventaLinea in vm.ventaLineas track by ventaLinea.id">
-                    <td><a ui-sref="venta-linea-detail({id:ventaLinea.id})">{{ventaLinea.id}}</a></td>
+
                     <td>{{ventaLinea.cantidad}}</td>
                     <td>
                         <a ui-sref="venta-detail({id:ventaLinea.venta.id})">{{ventaLinea.venta.id}}</a>

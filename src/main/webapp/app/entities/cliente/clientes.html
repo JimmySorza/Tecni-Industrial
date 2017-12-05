@@ -7,7 +7,7 @@
                 <button class="btn btn-primary" ui-sref="cliente.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span >
-                        Create new Cliente
+                        Crear nuevo Cliente
                     </span>
                 </button>
             </div>
@@ -18,7 +18,7 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+
                     <th jh-sort-by="cedula"><span>Cedula</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="nombre"><span>Nombre</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="apellido"><span>Apellido</span> <span class="glyphicon glyphicon-sort"></span></th>
@@ -32,7 +32,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="cliente in vm.clientes track by cliente.id">
-                    <td><a ui-sref="cliente-detail({id:cliente.id})">{{cliente.id}}</a></td>
+
                     <td>{{cliente.cedula}}</td>
                     <td>{{cliente.nombre}}</td>
                     <td>{{cliente.apellido}}</td>

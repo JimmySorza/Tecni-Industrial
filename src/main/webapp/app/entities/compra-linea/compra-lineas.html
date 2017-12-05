@@ -7,7 +7,7 @@
                 <button class="btn btn-primary" ui-sref="compra-linea.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span >
-                        Create new Compra Linea
+                        Crear nueva Linea de compra
                     </span>
                 </button>
             </div>
@@ -18,7 +18,7 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr>
-                    <th><span>ID</span></th>
+
                     <th><span>Cantidad</span></th>
                     <th><span>Compra</span></th>
                     <th><span>Producto</span></th>
@@ -27,7 +27,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="compraLinea in vm.compraLineas track by compraLinea.id">
-                    <td><a ui-sref="compra-linea-detail({id:compraLinea.id})">{{compraLinea.id}}</a></td>
+
                     <td>{{compraLinea.cantidad}}</td>
                     <td>
                         <a ui-sref="compra-detail({id:compraLinea.compra.id})">{{compraLinea.compra.id}}</a>

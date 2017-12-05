@@ -1,5 +1,5 @@
 <div>
-    <h2>Proveedors</h2>
+    <h2>Proveedores</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
@@ -7,7 +7,7 @@
                 <button class="btn btn-primary" ui-sref="proveedor.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span >
-                        Create new Proveedor
+                        Crear nuevo Proveedor
                     </span>
                 </button>
             </div>
@@ -18,7 +18,7 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr>
-                    <th><span>ID</span></th>
+
                     <th><span>Nit</span></th>
                     <th><span>Razon Social</span></th>
                     <th><span>Email</span></th>
@@ -31,7 +31,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="proveedor in vm.proveedors track by proveedor.id">
-                    <td><a ui-sref="proveedor-detail({id:proveedor.id})">{{proveedor.id}}</a></td>
+
                     <td>{{proveedor.nit}}</td>
                     <td>{{proveedor.razonSocial}}</td>
                     <td>{{proveedor.email}}</td>

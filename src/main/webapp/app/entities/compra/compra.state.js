@@ -109,6 +109,35 @@
                 });
             }]
         })
+            .state('compra-detail.news', {
+                parent: 'compra',
+                url: '/compra',
+                data: {
+                    authorities: ['ROLE_USER']
+                },
+                onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                    $uibModal.open({
+                        templateUrl: 'app/entities/compra/compra-linea-dialog.html',
+                        controller: 'CompraLineaDialogsController',
+                        controllerAs: 'vm',
+                        backdrop: 'static',
+                        size: 'lg',
+                        resolve: {
+                            entity: function () {
+                                return {
+                                    cantidad: null,
+                                    id: null,
+                                    producto : null
+                                };
+                            }
+                        }
+                    }).result.then(function() {
+                        $state.go('^', {}, { reload: false });
+                    }, function() {
+                        $state.go('^', {}, { reload: false });
+                    });
+                }]
+            })
         .state('compra.edit', {
             parent: 'compra',
             url: '/{id}/edit',

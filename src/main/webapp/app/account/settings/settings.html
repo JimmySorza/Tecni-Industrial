@@ -1,10 +1,10 @@
 <div>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <h2>User settings for [<b>{{vm.settingsAccount.login}}</b>]</h2>
+            <h2>Opciones de usuario para [<b>{{vm.settingsAccount.login}}</b>]</h2>
 
             <div class="alert alert-success" ng-show="vm.success">
-                <strong>Settings saved!</strong>
+                <strong>configuraciones guardadas saved!</strong>
             </div>
 
            <jhi-alert-error></jhi-alert-error>
@@ -12,40 +12,40 @@
             <form name="form" role="form" novalidate ng-submit="vm.save()" show-validation>
 
                 <div class="form-group">
-                    <label class="control-label" for="firstName">First Name</label>
+                    <label class="control-label" for="firstName">Nombre</label>
                     <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Your first name"
                            ng-model="vm.settingsAccount.firstName" ng-minlength=1 ng-maxlength=50 required maxlength="50">
                     <div ng-show="form.firstName.$dirty && form.firstName.$invalid">
                         <p class="help-block"
                                ng-show="form.firstName.$error.required">
-                            Your first name is required.
+                            tu  nombre es requerido
                         </p>
                         <p class="help-block"
                                ng-show="form.firstName.$error.minlength">
-                            Your first name is required to be at least 1 character.
+                            Tu nombre debe tener al menos un caracter
                         </p>
                         <p class="help-block"
                                ng-show="form.firstName.$error.maxlength">
-                            Your first name cannot be longer than 50 characters.
+                            tu nombre no puede ser mas grande de 50 caracteres
                         </p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label" for="lastName">Last Name</label>
+                    <label class="control-label" for="lastName">Apellido</label>
                     <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Your last name"
                            ng-model="vm.settingsAccount.lastName" ng-minlength=1 ng-maxlength=50 required maxlength="50">
                     <div ng-show="form.lastName.$dirty && form.lastName.$invalid">
                         <p class="help-block"
                                ng-show="form.lastName.$error.required">
-                            Your last name is required.
+                            Tu appellido es requerido
                         </p>
                         <p class="help-block"
                                ng-show="form.lastName.$error.minlength">
-                            Your last name is required to be at least 1 character.
+                            Tu apellido debe tener al menos un caracter
                         </p>
                         <p class="help-block"
                                ng-show="form.lastName.$error.maxlength">
-                            Your last name cannot be longer than 50 characters.
+                            Tu apellido no puede tener mas de 50 caracteres
                         </p>
                     </div>
                 </div>
@@ -56,24 +56,24 @@
                     <div ng-show="form.email.$dirty && form.email.$invalid">
                         <p class="help-block"
                                ng-show="form.email.$error.required">
-                            Your email is required.
+                            Tu email es requerido.
                         </p>
                         <p class="help-block"
                                ng-show="form.email.$error.email">
-                            Your email is invalid.
+                            Tu email es inavalido.
                         </p>
                         <p class="help-block"
                                ng-show="form.email.$error.minlength">
-                            Your email is required to be at least 5 characters.
+                            Tu email debe tener al menos 5 caracteres
                         </p>
                         <p class="help-block"
                                ng-show="form.email.$error.maxlength">
-                            Your email cannot be longer than 100 characters.
+                            Tu email no puede tener mas de 100 caracteres.
                         </p>
                     </div>
                 </div>
 
-                <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Save</button>
+                <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Guardar.</button>
             </form>
         </div>
     </div>
