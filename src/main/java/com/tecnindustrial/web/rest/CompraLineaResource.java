@@ -3,7 +3,9 @@ package com.tecnindustrial.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import com.tecnindustrial.domain.CompraLinea;
 
+import com.tecnindustrial.domain.Producto;
 import com.tecnindustrial.repository.CompraLineaRepository;
+import com.tecnindustrial.repository.ProductoRepository;
 import com.tecnindustrial.web.rest.errors.BadRequestAlertException;
 import com.tecnindustrial.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -31,8 +33,11 @@ public class CompraLineaResource {
 
     private final CompraLineaRepository compraLineaRepository;
 
-    public CompraLineaResource(CompraLineaRepository compraLineaRepository) {
+    private final ProductoRepository productoRepository;
+
+    public CompraLineaResource(CompraLineaRepository compraLineaRepository, ProductoRepository productoRepository) {
         this.compraLineaRepository = compraLineaRepository;
+        this.productoRepository=productoRepository;
     }
 
     /**
@@ -51,6 +56,26 @@ public class CompraLineaResource {
         }
         CompraLinea result = compraLineaRepository.save(compraLinea);
         return ResponseEntity.created(new URI("/api/compra-lineas/" + result.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
+            .body(result);
+    }
+
+    /** Jimmy
+     * POST  /compralineas : Create a new compraLinea.
+     *
+     * @param compraLinea the compraLinea to create
+     * @return the ResponseEntity with status 201 (Created) and with body the new compraLinea, or with status 400 (Bad Request) if the compraLinea has already an ID
+     * @throws URISyntaxException if the Location URI syntax is incorrect
+     */
+    @PostMapping("/compralineas")
+    @Timed
+    public ResponseEntity<CompraLinea> createCompraLineas(@RequestBody CompraLinea compraLinea) throws URISyntaxException {
+        log.debug("REST request to save CompraLinea : {}", compraLinea);
+        if (compraLinea.getId() != null) {
+            throw new BadRequestAlertException("A new compraLinea cannot already have an ID", ENTITY_NAME, "idexists");
+        }
+        CompraLinea result = compraLineaRepository.save(compraLinea);
+        return ResponseEntity.created(new URI("/api/compralineas/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
@@ -128,6 +153,11 @@ public class CompraLineaResource {
     @Timed
     public ResponseEntity<Void> deleteCompraLinea(@PathVariable Long id) {
         log.debug("REST request to delete CompraLinea : {}", id);
+        CompraLinea compraLinea = compraLineaRepository.findOne(id);
+        Producto producto = compraLinea.getProducto();
+        Long existencia = producto.getExistencia()-compraLinea.getCantidad();
+        producto.setExistencia(existencia);
+        productoRepository.save(producto);
         compraLineaRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }

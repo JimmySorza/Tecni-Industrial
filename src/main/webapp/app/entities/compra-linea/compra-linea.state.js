@@ -139,21 +139,7 @@
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
-                    templateUrl: 'app/entities/compra-linea/compra-linea-delete-dialog.html',
-                    controller: 'CompraLineaDeleteController',
-                    controllerAs: 'vm',
-                    size: 'md',
-                    resolve: {
-                        entity: ['CompraLinea', function(CompraLinea) {
-                            return CompraLinea.get({id : $stateParams.id}).$promise;
-                        }]
-                    }
-                }).result.then(function() {
-                    $state.go('compra-linea', null, { reload: 'compra-linea' });
-                }, function() {
-                    $state.go('^');
-                });
+                
             }]
         });
     }

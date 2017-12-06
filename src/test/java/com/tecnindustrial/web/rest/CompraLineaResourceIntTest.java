@@ -4,6 +4,7 @@ import com.tecnindustrial.TecniIndustrialApp;
 
 import com.tecnindustrial.domain.CompraLinea;
 import com.tecnindustrial.repository.CompraLineaRepository;
+import com.tecnindustrial.repository.ProductoRepository;
 import com.tecnindustrial.web.rest.errors.ExceptionTranslator;
 
 import org.junit.Before;
@@ -45,6 +46,9 @@ public class CompraLineaResourceIntTest {
     private CompraLineaRepository compraLineaRepository;
 
     @Autowired
+    private ProductoRepository productoRepository;
+
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -63,7 +67,7 @@ public class CompraLineaResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final CompraLineaResource compraLineaResource = new CompraLineaResource(compraLineaRepository);
+        final CompraLineaResource compraLineaResource = new CompraLineaResource(compraLineaRepository, productoRepository);
         this.restCompraLineaMockMvc = MockMvcBuilders.standaloneSetup(compraLineaResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

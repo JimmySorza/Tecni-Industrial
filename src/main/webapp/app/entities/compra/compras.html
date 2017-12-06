@@ -21,7 +21,6 @@
 
                     <th><span>Fecha</span></th>
                     <th><span>Numero</span></th>
-                    <th><span>Total</span></th>
                     <th><span>Proveedor</span></th>
                     <th></th>
                 </tr>
@@ -31,7 +30,6 @@
 
                         <td>{{compra.fecha | date:'mediumDate'}}</td>
                     <td>{{compra.numero}}</td>
-                    <td>{{compra.total}}</td>
                     <td>
                         <a ui-sref="proveedor-detail({id:compra.proveedor.id})">{{compra.proveedor.id}}</a>
                     </td>

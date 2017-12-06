@@ -14,7 +14,7 @@
         </dd>
         <dt><span>Total</span></dt>
         <dd>
-            <span>{{vm.compra.total}}</span>
+            <span>{{vm.totalGeneral()}}</span>
         </dd>
         <dt><span>Proveedor</span></dt>
         <dd>
@@ -28,7 +28,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-4 no-padding-left">
-                    <button class="btn btn-primary" ui-sref="compra-detail.news" >
+                    <button class="btn btn-primary" ng-click="vm.crearLinea()" >
                         <span class="glyphicon glyphicon-plus"></span>
                         <span >
                         Create new Compra Linea
@@ -42,39 +42,46 @@
             <table class="jh-table table table-striped">
                 <thead>
                 <tr>
-                    <th><span>ID</span></th>
+                    <!--<th><span>ID</span></th>-->
                     <th><span>Cantidad</span></th>
-                    <th><span>Compra</span></th>
+                    <!--<th><span>Compra</span></th>-->
                     <th><span>Producto</span></th>
-                    <th></th>
+                    <th><span>Precio</span></th>
+                     <th><span>Total</span></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="compraLinea in vm.compraLineas track by compraLinea.id">
-                    <td><a ui-sref="compra-linea-detail({id:compraLinea.id})">{{compraLinea.id}}</a></td>
+                    <!<td><a ui-sref="compra-linea-detail({id:compraLinea.id})">{{compraLinea.id}}</a></td>
                     <td>{{compraLinea.cantidad}}</td>
-                    <td>
+                    <!--<td>
                         <a ui-sref="compra-detail({id:compraLinea.compra.id})">{{compraLinea.compra.id}}</a>
+                    </td> -->
+                    <td>
+                        <a ui-sref="producto-detail({id:compraLinea.producto.id})">{{compraLinea.producto.nombre}}</a>
                     </td>
                     <td>
-                        <a ui-sref="producto-detail({id:compraLinea.producto.id})">{{compraLinea.producto.id}}</a>
+                        <a ui-sref="producto-detail({id:compraLinea.producto.id})">{{compraLinea.producto.precioVenta}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="producto-detail({id:compraLinea.producto.id})">{{compraLinea.producto.precioVenta*compraLinea.cantidad}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
-                            <button type="submit"
+                           <!--  <button type="submit"
                                     ui-sref="compra-linea-detail({id:compraLinea.id})"
                                     class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-sm-down"></span>
                             </button>
-                            <button type="submit"
+                           <button type="submit"
                                     ui-sref="compra-linea.edit({id:compraLinea.id})"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
                                 <span class="hidden-sm-down"></span>
-                            </button>
+                            </button>-->
                             <button type="submit"
-                                    ui-sref="compra-linea.delete({id:compraLinea.id})"
+                                    ng-click="vm.mostrarDialog(compraLinea)"
                                     class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-sm-down"></span>
