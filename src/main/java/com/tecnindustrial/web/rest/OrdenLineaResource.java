@@ -3,7 +3,9 @@ package com.tecnindustrial.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import com.tecnindustrial.domain.OrdenLinea;
 
+import com.tecnindustrial.domain.Producto;
 import com.tecnindustrial.repository.OrdenLineaRepository;
+import com.tecnindustrial.repository.ProductoRepository;
 import com.tecnindustrial.web.rest.errors.BadRequestAlertException;
 import com.tecnindustrial.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -30,9 +32,11 @@ public class OrdenLineaResource {
     private static final String ENTITY_NAME = "ordenLinea";
 
     private final OrdenLineaRepository ordenLineaRepository;
+    private final ProductoRepository productoRepository;
 
-    public OrdenLineaResource(OrdenLineaRepository ordenLineaRepository) {
+    public OrdenLineaResource(OrdenLineaRepository ordenLineaRepository, ProductoRepository productoRepository) {
         this.ordenLineaRepository = ordenLineaRepository;
+        this.productoRepository = productoRepository;
     }
 
     /**
@@ -49,8 +53,34 @@ public class OrdenLineaResource {
         if (ordenLinea.getId() != null) {
             throw new BadRequestAlertException("A new ordenLinea cannot already have an ID", ENTITY_NAME, "idexists");
         }
+
+        Producto producto = ordenLinea.getProducto();
+        Long existencia = producto.getExistencia()-ordenLinea.getCantidad();
+        producto.setExistencia(existencia);
+        productoRepository.save(producto);
+
         OrdenLinea result = ordenLineaRepository.save(ordenLinea);
         return ResponseEntity.created(new URI("/api/orden-lineas/" + result.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
+            .body(result);
+    }
+
+    /**
+     * POST  /ordenlineas : Create a new ordenLinea.
+     *
+     * @param ordenLinea the ordenLinea to create
+     * @return the ResponseEntity with status 201 (Created) and with body the new ordenLinea, or with status 400 (Bad Request) if the ordenLinea has already an ID
+     * @throws URISyntaxException if the Location URI syntax is incorrect
+     */
+    @PostMapping("/ordenlineas")
+    @Timed
+    public ResponseEntity<OrdenLinea> createOrdenLineas(@RequestBody OrdenLinea ordenLinea) throws URISyntaxException {
+        log.debug("REST request to save OrdenLinea : {}", ordenLinea);
+        if (ordenLinea.getId() != null) {
+            throw new BadRequestAlertException("A new ordenLinea cannot already have an ID", ENTITY_NAME, "idexists");
+        }
+        OrdenLinea result = ordenLineaRepository.save(ordenLinea);
+        return ResponseEntity.created(new URI("/api/ordenlineas/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
@@ -127,6 +157,11 @@ public class OrdenLineaResource {
     @Timed
     public ResponseEntity<Void> deleteOrdenLinea(@PathVariable Long id) {
         log.debug("REST request to delete OrdenLinea : {}", id);
+        OrdenLinea ordenLinea = ordenLineaRepository.findOne(id);
+        Producto producto = ordenLinea.getProducto();
+        Long existencia = producto.getExistencia() + ordenLinea.getCantidad();
+        producto.setExistencia(existencia);
+        productoRepository.save(producto);
         ordenLineaRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }

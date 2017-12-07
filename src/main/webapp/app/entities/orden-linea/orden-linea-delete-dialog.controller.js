@@ -9,7 +9,8 @@
 
     function OrdenLineaDeleteController($uibModalInstance, entity, OrdenLinea) {
         var vm = this;
-
+        console.log("dsdsdsdsdsds");
+        console.log(entity);
         vm.ordenLinea = entity;
         vm.clear = clear;
         vm.confirmDelete = confirmDelete;
@@ -24,5 +25,6 @@
                     $uibModalInstance.close(true);
                 });
         }
+
     }
 })();

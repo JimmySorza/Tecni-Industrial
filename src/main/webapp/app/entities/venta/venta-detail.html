@@ -14,7 +14,7 @@
         </dd>
         <dt><span>Total</span></dt>
         <dd>
-            <span>{{vm.venta.total}}</span>
+            <span>{{vm.totalGeneral()}}</span>
         </dd>
         <dt><span>Cliente</span></dt>
         <dd>
@@ -27,7 +27,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-4 no-padding-left">
-                    <button class="btn btn-primary" ui-sref="venta-linea.new" >
+                    <button class="btn btn-primary" ng-click="vm.crearLinea()" >
                         <span class="glyphicon glyphicon-plus"></span>
                         <span >
                         Create new Venta Linea
@@ -45,7 +45,8 @@
                     <th><span>Cantidad</span></th>
                     <th><span>Venta</span></th>
                     <th><span>Producto</span></th>
-                    <th></th>
+                    <th>Precio Venta</th>
+                    <th>Total</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -56,7 +57,13 @@
                         <a ui-sref="venta-detail({id:ventaLinea.venta.id})">{{ventaLinea.venta.id}}</a>
                     </td>
                     <td>
-                        <a ui-sref="producto-detail({id:ventaLinea.producto.id})">{{ventaLinea.producto.id}}</a>
+                        <a ui-sref="producto-detail({id:ventaLinea.producto.id})">{{ventaLinea.producto.nombre}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="producto-detail({id:ventaLinea.producto.id})">{{ventaLinea.producto.precioVenta}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="producto-detail({id:ventaLinea.producto.id})">{{ventaLinea.producto.precioVenta*ventaLinea.cantidad}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
@@ -73,7 +80,7 @@
                                 <span class="hidden-sm-down"></span>
                             </button>
                             <button type="submit"
-                                    ui-sref="venta-linea.delete({id:ventaLinea.id})"
+                                    ng-click="vm.mostrarDialog(ventaLinea)"
                                     class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-sm-down"></span>

@@ -51,7 +51,7 @@
         vm.totalGeneral=function(){
             var total = 0;
             angular.forEach(vm.compraLineas,function(value,key){
-                 total = total + (value.producto.precioVenta*value.cantidad);
+                 total = total + (value.producto.precioCosto*value.cantidad);
             });
             return total;
         }

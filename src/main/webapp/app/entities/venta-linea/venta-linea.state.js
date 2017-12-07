@@ -139,21 +139,7 @@
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
-                    templateUrl: 'app/entities/venta-linea/venta-linea-delete-dialog.html',
-                    controller: 'VentaLineaDeleteController',
-                    controllerAs: 'vm',
-                    size: 'md',
-                    resolve: {
-                        entity: ['VentaLinea', function(VentaLinea) {
-                            return VentaLinea.get({id : $stateParams.id}).$promise;
-                        }]
-                    }
-                }).result.then(function() {
-                    $state.go('venta-linea', null, { reload: 'venta-linea' });
-                }, function() {
-                    $state.go('^');
-                });
+
             }]
         });
     }

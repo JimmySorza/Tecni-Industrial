@@ -1,8 +1,10 @@
 package com.tecnindustrial.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.tecnindustrial.domain.Producto;
 import com.tecnindustrial.domain.VentaLinea;
 
+import com.tecnindustrial.repository.ProductoRepository;
 import com.tecnindustrial.repository.VentaLineaRepository;
 import com.tecnindustrial.web.rest.errors.BadRequestAlertException;
 import com.tecnindustrial.web.rest.util.HeaderUtil;
@@ -31,8 +33,11 @@ public class VentaLineaResource {
 
     private final VentaLineaRepository ventaLineaRepository;
 
-    public VentaLineaResource(VentaLineaRepository ventaLineaRepository) {
+    private final ProductoRepository productoRepository;
+
+    public VentaLineaResource(VentaLineaRepository ventaLineaRepository, ProductoRepository productoRepository) {
         this.ventaLineaRepository = ventaLineaRepository;
+        this.productoRepository=productoRepository;
     }
 
     /**
@@ -49,8 +54,34 @@ public class VentaLineaResource {
         if (ventaLinea.getId() != null) {
             throw new BadRequestAlertException("A new ventaLinea cannot already have an ID", ENTITY_NAME, "idexists");
         }
+
+        Producto producto = ventaLinea.getProducto();
+        Long existencia = producto.getExistencia()-ventaLinea.getCantidad();
+        producto.setExistencia(existencia);
+        productoRepository.save(producto);
+
         VentaLinea result = ventaLineaRepository.save(ventaLinea);
         return ResponseEntity.created(new URI("/api/venta-lineas/" + result.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
+            .body(result);
+    }
+
+    /**Jimmy
+     * POST  /ventalineas : Create a new ventaLinea.
+     *
+     * @param ventaLinea the ventaLinea to create
+     * @return the ResponseEntity with status 201 (Created) and with body the new ventaLinea, or with status 400 (Bad Request) if the ventaLinea has already an ID
+     * @throws URISyntaxException if the Location URI syntax is incorrect
+     */
+    @PostMapping("/ventalineas")
+    @Timed
+    public ResponseEntity<VentaLinea> createVentaLineas(@RequestBody VentaLinea ventaLinea) throws URISyntaxException {
+        log.debug("REST request to save VentaLinea : {}", ventaLinea);
+        if (ventaLinea.getId() != null) {
+            throw new BadRequestAlertException("A new ventaLinea cannot already have an ID", ENTITY_NAME, "idexists");
+        }
+        VentaLinea result = ventaLineaRepository.save(ventaLinea);
+        return ResponseEntity.created(new URI("/api/ventalineas/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
@@ -127,6 +158,11 @@ public class VentaLineaResource {
     @Timed
     public ResponseEntity<Void> deleteVentaLinea(@PathVariable Long id) {
         log.debug("REST request to delete VentaLinea : {}", id);
+        VentaLinea ventaLinea = ventaLineaRepository.findOne(id);
+        Producto producto  = ventaLinea.getProducto();
+        Long existencia = producto.getExistencia()+ventaLinea.getCantidad();
+        producto.setExistencia(existencia);
+        productoRepository.save(producto);
         ventaLineaRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }

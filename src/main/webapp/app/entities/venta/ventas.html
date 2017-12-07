@@ -21,7 +21,7 @@
 
                     <th><span>Fecha</span></th>
                     <th><span>Numero</span></th>
-                    <th><span>Total</span></th>
+
                     <th><span>Cliente</span></th>
                     <th></th>
                 </tr>
@@ -31,7 +31,7 @@
 
                         <td>{{venta.fecha | date:'mediumDate'}}</td>
                     <td>{{venta.numero}}</td>
-                    <td>{{venta.total}}</td>
+
                     <td>
                         <a ui-sref="cliente-detail({id:venta.cliente.id})">{{venta.cliente.id}}</a>
                     </td>

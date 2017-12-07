@@ -139,21 +139,7 @@
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
-                    templateUrl: 'app/entities/orden-linea/orden-linea-delete-dialog.html',
-                    controller: 'OrdenLineaDeleteController',
-                    controllerAs: 'vm',
-                    size: 'md',
-                    resolve: {
-                        entity: ['OrdenLinea', function(OrdenLinea) {
-                            return OrdenLinea.get({id : $stateParams.id}).$promise;
-                        }]
-                    }
-                }).result.then(function() {
-                    $state.go('orden-linea', null, { reload: 'orden-linea' });
-                }, function() {
-                    $state.go('^');
-                });
+
             }]
         });
     }

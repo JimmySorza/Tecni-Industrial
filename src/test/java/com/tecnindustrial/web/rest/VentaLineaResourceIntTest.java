@@ -3,6 +3,7 @@ package com.tecnindustrial.web.rest;
 import com.tecnindustrial.TecniIndustrialApp;
 
 import com.tecnindustrial.domain.VentaLinea;
+import com.tecnindustrial.repository.ProductoRepository;
 import com.tecnindustrial.repository.VentaLineaRepository;
 import com.tecnindustrial.web.rest.errors.ExceptionTranslator;
 
@@ -51,6 +52,9 @@ public class VentaLineaResourceIntTest {
     private PageableHandlerMethodArgumentResolver pageableArgumentResolver;
 
     @Autowired
+    private ProductoRepository productoRepository;
+
+    @Autowired
     private ExceptionTranslator exceptionTranslator;
 
     @Autowired
@@ -63,7 +67,7 @@ public class VentaLineaResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final VentaLineaResource ventaLineaResource = new VentaLineaResource(ventaLineaRepository);
+        final VentaLineaResource ventaLineaResource = new VentaLineaResource(ventaLineaRepository, productoRepository);
         this.restVentaLineaMockMvc = MockMvcBuilders.standaloneSetup(ventaLineaResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

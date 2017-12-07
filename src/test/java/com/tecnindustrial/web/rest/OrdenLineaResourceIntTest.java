@@ -4,6 +4,7 @@ import com.tecnindustrial.TecniIndustrialApp;
 
 import com.tecnindustrial.domain.OrdenLinea;
 import com.tecnindustrial.repository.OrdenLineaRepository;
+import com.tecnindustrial.repository.ProductoRepository;
 import com.tecnindustrial.web.rest.errors.ExceptionTranslator;
 
 import org.junit.Before;
@@ -45,6 +46,9 @@ public class OrdenLineaResourceIntTest {
     private OrdenLineaRepository ordenLineaRepository;
 
     @Autowired
+    private ProductoRepository productoRepository;
+
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -63,7 +67,7 @@ public class OrdenLineaResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final OrdenLineaResource ordenLineaResource = new OrdenLineaResource(ordenLineaRepository);
+        final OrdenLineaResource ordenLineaResource = new OrdenLineaResource(ordenLineaRepository, productoRepository);
         this.restOrdenLineaMockMvc = MockMvcBuilders.standaloneSetup(ordenLineaResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

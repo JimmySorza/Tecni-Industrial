@@ -38,7 +38,7 @@
         </dd>
         <dt><span>Total</span></dt>
         <dd>
-            <span>{{vm.ordenReparacion.total}}</span>
+            <span>{{vm.totalGeneral()}}</span>
         </dd>
         <dt><span>Tecnico</span></dt>
         <dd>
@@ -59,7 +59,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-4 no-padding-left">
-                    <button class="btn btn-primary" ui-sref="orden-linea.new" >
+                    <button class="btn btn-primary" ng-click="vm.crearLinea()">
                         <span class="glyphicon glyphicon-plus"></span>
                         <span >
                         Create new Orden Linea
@@ -77,7 +77,8 @@
                     <th><span>Cantidad</span></th>
                     <th><span>Orden Reparacion</span></th>
                     <th><span>Producto</span></th>
-                    <th></th>
+                    <th>Precio Unitario</th>
+                    <th>Total</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -88,7 +89,13 @@
                         <a ui-sref="orden-reparacion-detail({id:ordenLinea.ordenReparacion.id})">{{ordenLinea.ordenReparacion.id}}</a>
                     </td>
                     <td>
-                        <a ui-sref="producto-detail({id:ordenLinea.producto.id})">{{ordenLinea.producto.id}}</a>
+                        <a ui-sref="producto-detail({id:ordenLinea.producto.id})">{{ordenLinea.producto.nombre}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="producto-detail({id:compraLinea.producto.id})">{{ordenLinea.producto.precioVenta}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="producto-detail({id:compraLinea.producto.id})">{{ordenLinea.producto.precioVenta*ordenLinea.cantidad}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
@@ -105,7 +112,7 @@
                                 <span class="hidden-sm-down"></span>
                             </button>
                             <button type="submit"
-                                    ui-sref="orden-linea.delete({id:ordenLinea.id})"
+                                    ng-click="vm.mostrarDialog(ordenLinea)"
                                     class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-sm-down"></span>

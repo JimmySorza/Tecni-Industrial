@@ -54,6 +54,12 @@ public class CompraLineaResource {
         if (compraLinea.getId() != null) {
             throw new BadRequestAlertException("A new compraLinea cannot already have an ID", ENTITY_NAME, "idexists");
         }
+
+        Producto producto = compraLinea.getProducto();
+        Long existencia = producto.getExistencia()+compraLinea.getCantidad();
+        producto.setExistencia(existencia);
+        productoRepository.save(producto);
+
         CompraLinea result = compraLineaRepository.save(compraLinea);
         return ResponseEntity.created(new URI("/api/compra-lineas/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))

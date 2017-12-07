@@ -109,6 +109,37 @@
                 });
             }]
         })
+            //state venta-details.news puede sobrar! ya qye en las ordenes no fue necesario
+            .state('venta-details.news', {
+                parent: 'venta',
+                url: '/venta',
+                data: {
+                    authorities: ['ROLE_USER']
+                },
+                onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                    $uibModal.open({
+                        templateUrl: 'app/entities/venta/venta-linea-dialog.html',
+                        controller: 'VentaLineaDialogController',
+                        controllerAs: 'vm',
+                        backdrop: 'static',
+                        size: 'lg',
+                        resolve: {
+                            entity: function () {
+                                return {
+                                    cantidad: null,
+                                    id: null,
+                                    producto: null
+                                };
+                            }
+                        }
+                    }).result.then(function() {
+                        $state.go('^',{} , { reload: false });
+                    }, function() {
+                        $state.go('^',{} , { reload: false });
+                    });
+                }]
+            })
+
         .state('venta.edit', {
             parent: 'venta',
             url: '/{id}/edit',
