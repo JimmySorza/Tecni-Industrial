@@ -1,8 +1,8 @@
-<div>
+<div class="espacio">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <h2>Opciones de usuario para [<b>{{vm.settingsAccount.login}}</b>]</h2>
-
+            <br><br>
             <div class="alert alert-success" ng-show="vm.success">
                 <strong>configuraciones guardadas saved!</strong>
             </div>
@@ -13,6 +13,7 @@
 
                 <div class="form-group">
                     <label class="control-label" for="firstName">Nombre</label>
+                    <br>
                     <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Your first name"
                            ng-model="vm.settingsAccount.firstName" ng-minlength=1 ng-maxlength=50 required maxlength="50">
                     <div ng-show="form.firstName.$dirty && form.firstName.$invalid">
@@ -32,6 +33,7 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="lastName">Apellido</label>
+                    <br>
                     <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Your last name"
                            ng-model="vm.settingsAccount.lastName" ng-minlength=1 ng-maxlength=50 required maxlength="50">
                     <div ng-show="form.lastName.$dirty && form.lastName.$invalid">
@@ -51,6 +53,7 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="email">Email</label>
+                    <br>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Your email"
                            ng-model="vm.settingsAccount.email" ng-minlength=5 ng-maxlength=100 required maxlength="100">
                     <div ng-show="form.email.$dirty && form.email.$invalid">
@@ -72,7 +75,7 @@
                         </p>
                     </div>
                 </div>
-
+                <br>
                 <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Guardar.</button>
             </form>
         </div>

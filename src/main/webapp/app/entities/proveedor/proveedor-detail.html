@@ -1,6 +1,7 @@
 
-<div>
-    <h2><span>Proveedor</span> {{vm.proveedor.id}}</h2>
+<div class="espacio container">
+    <h2><span>Proveedor</span> {{vm.proveedor.razonSocial}}</h2>
+    <br><br>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="dl-horizontal jh-entity-details">
@@ -40,7 +41,7 @@
         <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Volver</span>
     </button>
 
-    <button type="button" ui-sref="proveedor-detail.edit({id:vm.proveedor.id})" class="btn btn-primary">
+    <button type="button" ui-sref="proveedor-detail.edit({id:vm.proveedor.id})" class="btn btn-primary pull-right">
         <span class="glyphicon glyphicon-pencil"></span>
         <span class="hidden-sm-down"> Editar</span>
     </button>

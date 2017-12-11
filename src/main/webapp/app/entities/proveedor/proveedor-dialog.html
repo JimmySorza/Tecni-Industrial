@@ -1,5 +1,5 @@
 
-<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+<form class="container" name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -8,11 +8,7 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group" ng-show="vm.proveedor.id">
-            <label for="id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                    ng-model="vm.proveedor.id" readonly />
-        </div>
+
         <div class="form-group">
             <label class="control-label" for="field_nit">Nit</label>
             <input type="text" class="form-control" name="nit" id="field_nit"
@@ -21,7 +17,7 @@
             <div ng-show="editForm.nit.$invalid">
                 <p class="help-block"
                     ng-show="editForm.nit.$error.required">
-                    This field is required.
+                    Este campo es requerido.
                 </p>
             </div>
         </div>
@@ -33,7 +29,7 @@
             <div ng-show="editForm.razonSocial.$invalid">
                 <p class="help-block"
                     ng-show="editForm.razonSocial.$error.required">
-                    This field is required.
+                    Este campo es requerido.
                 </p>
             </div>
         </div>
@@ -73,8 +69,9 @@
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancelar</span>
         </button>
-        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary ">
             <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Guardar</span>
         </button>
     </div>
+    <br><br>
 </form>

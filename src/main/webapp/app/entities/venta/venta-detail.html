@@ -1,36 +1,38 @@
 
-<div>
-    <h2><span>Venta</span> {{vm.venta.id}}</h2>
+<div class="espacio container">
+    <h2><span>Venta</span> {{vm.venta.numero}}</h2>
     <hr>
+    <br><br>
     <jhi-alert-error></jhi-alert-error>
     <dl class="dl-horizontal jh-entity-details">
+
         <dt><span>Fecha</span></dt>
         <dd>
             <span>{{vm.venta.fecha | date:'mediumDate'}}</span>
         </dd>
-        <dt><span>Numero</span></dt>
-        <dd>
-            <span>{{vm.venta.numero}}</span>
-        </dd>
-        <dt><span>Total</span></dt>
-        <dd>
-            <span>{{vm.totalGeneral()}}</span>
-        </dd>
         <dt><span>Cliente</span></dt>
         <dd>
-            <a ui-sref="cliente-detail({id:vm.venta.cliente.id})">{{vm.venta.cliente.id}}</a>
+            <a ui-sref="cliente-detail({id:vm.venta.cliente.id})">{{vm.venta.cliente.nombre}}</a>
         </dd>
+        <hr>
+        <dt><h3><span>Total</span></h3></dt>
+        <dd>
+           <h3 class="pull-right"><span>$ {{vm.totalGeneral()}}</h3> </span>
+        </dd>
+        <hr>
     </dl>
     <div>
-        <h2>Venta Lineas</h2>
+        <br>
         <jhi-alert></jhi-alert>
+
+        <br>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-4 no-padding-left">
                     <button class="btn btn-primary" ng-click="vm.crearLinea()" >
                         <span class="glyphicon glyphicon-plus"></span>
                         <span >
-                        Create new Venta Linea
+                        Item
                     </span>
                     </button>
                 </div>
@@ -41,44 +43,31 @@
             <table class="jh-table table table-striped">
                 <thead>
                 <tr>
-                    <th><span>ID</span></th>
+
                     <th><span>Cantidad</span></th>
-                    <th><span>Venta</span></th>
+
                     <th><span>Producto</span></th>
-                    <th>Precio Venta</th>
-                    <th>Total</th>
+                    <th>Valor</th>
+                    <th>SubTotal</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="ventaLinea in vm.ventaLineas track by ventaLinea.id">
-                    <td><a ui-sref="venta-linea-detail({id:ventaLinea.id})">{{ventaLinea.id}}</a></td>
+
                     <td>{{ventaLinea.cantidad}}</td>
-                    <td>
-                        <a ui-sref="venta-detail({id:ventaLinea.venta.id})">{{ventaLinea.venta.id}}</a>
-                    </td>
+
                     <td>
                         <a ui-sref="producto-detail({id:ventaLinea.producto.id})">{{ventaLinea.producto.nombre}}</a>
                     </td>
                     <td>
-                        <a ui-sref="producto-detail({id:ventaLinea.producto.id})">{{ventaLinea.producto.precioVenta}}</a>
+                        <a ui-sref="producto-detail({id:ventaLinea.producto.id})">$ {{ventaLinea.producto.precioVenta}}</a>
                     </td>
                     <td>
-                        <a ui-sref="producto-detail({id:ventaLinea.producto.id})">{{ventaLinea.producto.precioVenta*ventaLinea.cantidad}}</a>
+                        <a ui-sref="producto-detail({id:ventaLinea.producto.id})">$ {{ventaLinea.producto.precioVenta*ventaLinea.cantidad}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
-                            <button type="submit"
-                                    ui-sref="venta-linea-detail({id:ventaLinea.id})"
-                                    class="btn btn-info btn-sm">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-sm-down"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="venta-linea.edit({id:ventaLinea.id})"
-                                    class="btn btn-primary btn-sm">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                                <span class="hidden-sm-down"></span>
-                            </button>
+
                             <button type="submit"
                                     ng-click="vm.mostrarDialog(ventaLinea)"
                                     class="btn btn-danger btn-sm">
@@ -92,14 +81,14 @@
             </table>
         </div>
     </div>
-
+    <br><br>
     <button type="submit"
             ui-sref="{{ vm.previousState }}"
             class="btn btn-info">
         <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Volver</span>
     </button>
 
-    <button type="button" ui-sref="venta-detail.edit({id:vm.venta.id})" class="btn btn-primary">
+    <button type="button" ui-sref="venta-detail.edit({id:vm.venta.id})" class="btn btn-primary pull-right">
         <span class="glyphicon glyphicon-pencil"></span>
         <span class="hidden-sm-down"> Editar</span>
     </button>

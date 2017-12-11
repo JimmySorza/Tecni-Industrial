@@ -1,5 +1,7 @@
-<div>
+<div class="espacio container">
     <h2>Ventas</h2>
+    <hr>
+    <br><br>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
@@ -33,7 +35,7 @@
                     <td>{{venta.numero}}</td>
 
                     <td>
-                        <a ui-sref="cliente-detail({id:venta.cliente.id})">{{venta.cliente.id}}</a>
+                        <a ui-sref="cliente-detail({id:venta.cliente.id})">{{venta.cliente.nombre}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

@@ -22,19 +22,19 @@ public final class HeaderUtil {
     }
 
     public static HttpHeaders createEntityCreationAlert(String entityName, String param) {
-        return createAlert("A new " + entityName + " is created with identifier " + param, param);
+        return createAlert("" + entityName + ": creacion exitosa! " + param, param);
     }
 
     public static HttpHeaders createEntityUpdateAlert(String entityName, String param) {
-        return createAlert("A " + entityName + " is updated with identifier " + param, param);
+        return createAlert("" + entityName + ": actualizacion exitosa! " + param, param);
     }
 
     public static HttpHeaders createEntityDeletionAlert(String entityName, String param) {
-        return createAlert("A " + entityName + " is deleted with identifier " + param, param);
+        return createAlert("" + entityName + ": eliminacion exitosa! " + param, param);
     }
 
     public static HttpHeaders createFailureAlert(String entityName, String errorKey, String defaultMessage) {
-        log.error("Entity processing failed, {}", defaultMessage);
+        log.error("Proceso de la entidad fallo, {}", defaultMessage);
         HttpHeaders headers = new HttpHeaders();
         headers.add("X-tecniIndustrialApp-error", defaultMessage);
         headers.add("X-tecniIndustrialApp-params", entityName);

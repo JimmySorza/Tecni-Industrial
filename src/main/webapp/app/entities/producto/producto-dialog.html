@@ -1,5 +1,5 @@
 
-<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+<form class="container" name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -8,11 +8,7 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group" ng-show="vm.producto.id">
-            <label for="id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                    ng-model="vm.producto.id" readonly />
-        </div>
+
         <div class="form-group">
             <label class="control-label" for="field_codigo">Codigo</label>
             <input type="text" class="form-control" name="codigo" id="field_codigo"
@@ -52,7 +48,7 @@
 
         <div class="form-group">
             <label for="field_categoria">Categoria</label>
-            <select class="form-control" id="field_categoria" name="categoria" ng-model="vm.producto.categoria" ng-options="categoria as categoria.id for categoria in vm.categorias track by categoria.id">
+            <select class="form-control" id="field_categoria" name="categoria" ng-model="vm.producto.categoria" ng-options="categoria as categoria.descripcion for categoria in vm.categorias track by categoria.descripcion">
                 <option value=""></option>
             </select>
         </div>
@@ -65,4 +61,5 @@
             <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Guardar</span>
         </button>
     </div>
+    <br><br>
 </form>

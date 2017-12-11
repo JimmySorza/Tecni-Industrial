@@ -1,8 +1,10 @@
 
-<div>
-    <h2><span>Producto</span> {{vm.producto.id}}</h2>
+<div class="espacio container">
+    <h2><span>Producto</span> {{vm.producto.nombre}}</h2>
+    <br><br>
     <hr>
     <jhi-alert-error></jhi-alert-error>
+
     <dl class="dl-horizontal jh-entity-details">
         <dt><span>Codigo</span></dt>
         <dd>
@@ -14,11 +16,11 @@
         </dd>
         <dt><span>Precio Costo</span></dt>
         <dd>
-            <span>{{vm.producto.precioCosto}}</span>
+            <span>$ {{vm.producto.precioCosto}}</span>
         </dd>
         <dt><span>Precio Venta</span></dt>
         <dd>
-            <span>{{vm.producto.precioVenta}}</span>
+            <span>$ {{vm.producto.precioVenta}}</span>
         </dd>
         <dt><span>Existencia</span></dt>
         <dd>
@@ -26,17 +28,17 @@
         </dd>
         <dt><span>Categoria</span></dt>
         <dd>
-            <a ui-sref="categoria-detail({id:vm.producto.categoria.id})">{{vm.producto.categoria.id}}</a>
+            <a ui-sref="categoria-detail({id:vm.producto.categoria.id})">{{vm.producto.categoria.descripcion}}</a>
         </dd>
     </dl>
-
+    <br><br>
     <button type="submit"
             ui-sref="{{ vm.previousState }}"
             class="btn btn-info">
         <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Volver</span>
     </button>
 
-    <button type="button" ui-sref="producto-detail.edit({id:vm.producto.id})" class="btn btn-primary">
+    <button type="button" ui-sref="producto-detail.edit({id:vm.producto.id})" class="btn btn-primary pull-right">
         <span class="glyphicon glyphicon-pencil"></span>
         <span class="hidden-sm-down"> Editar</span>
     </button>

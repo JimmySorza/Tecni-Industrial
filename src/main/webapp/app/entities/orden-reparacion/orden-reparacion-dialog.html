@@ -1,5 +1,5 @@
 
-<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+<form class="container" name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -8,10 +8,11 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group" ng-show="vm.ordenReparacion.id">
-            <label for="id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                    ng-model="vm.ordenReparacion.id" readonly />
+        <div class="form-group">
+            <label for="field_cliente">Cliente</label>
+            <select class="form-control" id="field_cliente" name="cliente" ng-model="vm.ordenReparacion.cliente" ng-options="cliente as cliente.nombre for cliente in vm.clientes track by cliente.id">
+                <option value=""></option>
+            </select>
         </div>
         <div class="form-group">
             <label class="control-label" for="field_fecha">Fecha</label>
@@ -36,7 +37,7 @@
             <div ng-show="editForm.maquina.$invalid">
                 <p class="help-block"
                     ng-show="editForm.maquina.$error.required">
-                    This field is required.
+                    Este campo es requerido.
                 </p>
             </div>
         </div>
@@ -45,6 +46,12 @@
             <input type="text" class="form-control" name="falla" id="field_falla"
                     ng-model="vm.ordenReparacion.falla"
                     />
+        </div>
+        <div class="form-group">
+            <label for="field_estado">Estado</label>
+            <select class="form-control" id="field_estado" name="estado" ng-model="vm.ordenReparacion.estado" ng-options="estado as estado.nombre for estado in vm.estados track by estado.id">
+                <option value=""></option>
+            </select>
         </div>
         <div class="form-group">
             <label class="control-label" for="field_fechaPrometido">Fecha Prometido</label>
@@ -74,31 +81,16 @@
                     ng-model="vm.ordenReparacion.informeTecnico"
                     />
         </div>
-        <div class="form-group">
-            <label class="control-label" for="field_total">Total</label>
-            <input type="number" class="form-control" name="total" id="field_total"
-                    ng-model="vm.ordenReparacion.total"
-                    />
-        </div>
+
 
         <div class="form-group">
             <label for="field_tecnico">Tecnico</label>
-            <select class="form-control" id="field_tecnico" name="tecnico" ng-model="vm.ordenReparacion.tecnico" ng-options="tecnico as tecnico.id for tecnico in vm.tecnicos track by tecnico.id">
+            <select class="form-control" id="field_tecnico" name="tecnico" ng-model="vm.ordenReparacion.tecnico" ng-options="tecnico as tecnico.nombre for tecnico in vm.tecnicos track by tecnico.id">
                 <option value=""></option>
             </select>
         </div>
-        <div class="form-group">
-            <label for="field_estado">Estado</label>
-            <select class="form-control" id="field_estado" name="estado" ng-model="vm.ordenReparacion.estado" ng-options="estado as estado.id for estado in vm.estados track by estado.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="field_cliente">Cliente</label>
-            <select class="form-control" id="field_cliente" name="cliente" ng-model="vm.ordenReparacion.cliente" ng-options="cliente as cliente.id for cliente in vm.clientes track by cliente.id">
-                <option value=""></option>
-            </select>
-        </div>
+
+
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
@@ -108,4 +100,5 @@
             <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Guardar</span>
         </button>
     </div>
+    <br>
 </form>

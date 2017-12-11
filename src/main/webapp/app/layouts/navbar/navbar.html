@@ -1,4 +1,5 @@
-<nav class="navbar navbar-default" role="navigation">
+<!--
+<nav class="navbar navbar-expand-md fixed-top navbar-inverse" color-on-scroll="500" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" ng-click="vm.toggleNavbar()">
@@ -20,7 +21,7 @@
                         <span class="hidden-sm">Inicio</span>
                     </a>
                 </li>
-                <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
+
                 <li ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" uib-dropdown class="dropdown pointer">
                     <a class="dropdown-toggle" uib-dropdown-toggle href="" id="entity-menu">
                         <span>
@@ -89,7 +90,7 @@
                                 </a>
                             </li>
 
-                        <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+
                     </ul>
                 </li>
                 <li ng-class="{active: vm.$state.includes('account')}" uib-dropdown class="dropdown pointer">
@@ -177,7 +178,7 @@
                         <li ui-sref-active="active">
                             <a ui-sref="audits" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-bell"></span>&nbsp;
-                                <span>Audits</span>
+                                        <span>Audits</span>
                             </a>
                         </li>
                         <li ui-sref-active="active">
@@ -192,7 +193,7 @@
                                 <span>API</span>
                             </a>
                         </li>
-                        <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
+
                         <li ng-hide="vm.inProduction">
                             <a href='/h2-console' target="_tab" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-hdd"></span>&nbsp;
@@ -205,3 +206,187 @@
         </div>
     </div>
 </nav>
+-->
+
+
+
+    <div class="container" >
+<div class="">
+            <button class="navbar-toggler navbar-toggler-right navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-bar"></span>
+                <span class="navbar-toggler-bar"></span>
+                <span class="navbar-toggler-bar"></span>
+            </button>
+            <a class=" logo" href="#/" ng-click="vm.collapseNavbar()">
+                <img class="logo-img" src="content/images/logo-jhipster.png" alt="logo"/>
+
+            </a>
+    </div>
+
+        <div class="collapse navbar-collapse" uib-collapse="vm.isNavbarCollapsed" ng-switch="vm.isAuthenticated()" id="navbarToggler">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="" target="_blank">
+                        <i class="fa fa-twitter"></i>
+                        <p class="d-lg-none">Twitter</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="" target="_blank">
+                        <i class="fa fa-facebook-square"></i>
+                        <p class="d-lg-none">Facebook</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="" target="_blank">
+                        <i class="fa fa-instagram"></i>
+                        <p class="d-lg-none">Instagram</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" rel="tooltip" title="Star on GitHub" data-placement="bottom" href="" target="_blank">
+                        <i class="fa fa-github"></i>
+                        <p class="d-lg-none">GitHub</p>
+                    </a>
+                </li>
+                <div ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" href="#pk" role="button" aria-haspopup="true" aria-expanded="false"><span>
+                            <span class="glyphicon glyphicon-barcode"></span>
+                            <span class="hidden-sm">
+                                Productos
+                            </span>
+
+                        </span></a>
+                    <ul class="dropdown-menu dropdown-info" aria-labelledby="dropdownMenuButton">
+                        <li ng-class="{active: vm.$state.includes('account')}"  class="dropdown-header">Modulo Productos</li>
+                        <a ui-sref="categoria" ng-click="vm.collapseNavbar()" class="dropdown-item" href="#pk"><span class="glyphicon glyphicon-check"></span>&nbsp;
+                            <span>Categorias</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a ui-sref="producto" ng-click="vm.collapseNavbar()" class="dropdown-item" href="#pk"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                            <span>Productos</span></a>
+                    </ul>
+                </div>
+
+                <div ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" href="#pk" role="button" aria-haspopup="true" aria-expanded="false"><span>
+                            <span class="glyphicon glyphicon-import"></span>
+                            <span class="hidden-sm">
+                                Compras
+                            </span>
+
+                        </span></a>
+                    <ul class="dropdown-menu dropdown-info" aria-labelledby="dropdownMenuButton">
+                        <li ng-class="{active: vm.$state.includes('account')}"  class="dropdown-header">Modulo Compras</li>
+                        <a ui-sref="proveedor" ng-click="vm.collapseNavbar()" class="dropdown-item" href="#pk"><span class="glyphicon glyphicon-plus"></span>&nbsp;
+                            <span>Proveedores</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a ui-sref="compra" ng-click="vm.collapseNavbar()" class="dropdown-item" href="#pk"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                            <span>Compras</span></a>
+                    </ul>
+                </div>
+
+                <div ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" href="#pk" role="button" aria-haspopup="true" aria-expanded="false"><span>
+                            <span class="glyphicon glyphicon-shopping-cart"></span>
+                            <span class="hidden-sm">
+                                Ventas
+                            </span>
+
+                        </span></a>
+                    <ul class="dropdown-menu dropdown-info" aria-labelledby="dropdownMenuButton">
+                        <li ng-class="{active: vm.$state.includes('account')}"  class="dropdown-header">Modulo Ventas</li>
+                        <a ui-sref="cliente" ng-click="vm.collapseNavbar()" class="dropdown-item" href="#pk"><span class="glyphicon glyphicon-plus"></span>&nbsp;
+                            <span>Clientes</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a ui-sref="venta" ng-click="vm.collapseNavbar()" class="dropdown-item" href="#pk"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                            <span>Ventas</span></a>
+                    </ul>
+                </div>
+
+                <div ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" href="#pk" role="button" aria-haspopup="true" aria-expanded="false"><span>
+                            <span class="glyphicon glyphicon-dashboard"></span>
+                            <span class="hidden-sm">
+                                Servicio Tecnico
+                            </span>
+
+                        </span></a>
+                    <ul class="dropdown-menu dropdown-info" aria-labelledby="dropdownMenuButton">
+                        <li ng-class="{active: vm.$state.includes('account')}"  class="dropdown-header">Modulo de Sericio Tecnico</li>
+                        <a ui-sref="tecnico" ng-click="vm.collapseNavbar()" class="dropdown-item" href="#pk"><span class="glyphicon glyphicon-list"></span>&nbsp;
+                            <span>Tecnicos</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a ui-sref="estado" ng-click="vm.collapseNavbar()" class="dropdown-item" href="#pk"><span class="glyphicon glyphicon-adjust"></span>&nbsp;
+                            <span>Estados de Reparación</span></a>
+                        <a ui-sref="orden-reparacion" ng-click="vm.collapseNavbar()" class="dropdown-item" href="#pk"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                            <span>Ordenes de Reparación</span></a>
+
+                    </ul>
+                </div>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" href="#pk" role="button" aria-haspopup="true" aria-expanded="false"><span>
+                            <span class="glyphicon glyphicon-user"></span>
+                            <span class="hidden-sm">
+                                Cuenta
+                            </span>
+                    </span></a>
+                    <ul class="dropdown-menu dropdown-info" aria-labelledby="dropdownMenuButton">
+                        <li ng-class="{active: vm.$state.includes('account')}"  class="dropdown-header">Modulo Usuarios</li>
+                        <a ui-sref="register" ng-click="vm.collapseNavbar()" class="dropdown-item" href="#pk"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;
+                            <span>Registrar</span></a>
+                        <div class="dropdown-divider"></div>
+                       <!-- <a  ng-click="vm.login()"  id="login" class="dropdown-item" href=""><span class="glyphicon glyphicon-log-in"></span>&nbsp;
+                            <span>Iniciar sesion</span></a>-->
+                        <div class="dropdown-divider"></div>
+                        <a ui-sref="password" ng-click="vm.collapseNavbar()" class="dropdown-item" href="#pk"><span class="glyphicon glyphicon-lock"></span>&nbsp;
+                            <span>Contraseña</span></a>
+                        <a ui-sref="sessions" ng-click="vm.collapseNavbar()" class="dropdown-item" href="#pk"><span class="glyphicon glyphicon-cloud"></span>&nbsp;
+                            <span>Sesiones</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a ui-sref="settings" ng-click="vm.collapseNavbar()" class="dropdown-item" href="#pk"><span class="glyphicon glyphicon-wrench"></span>&nbsp;
+                            <span>Configuraciones</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a ui-sref="user-management" ng-click="vm.collapseNavbar()" class="dropdown-item" href="#pk"><span class="glyphicon glyphicon-lock"></span>&nbsp;
+                            <span>Usuarios</span></a>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-divider"></div>
+                        <a  href="" ng-click="vm.logout()" class="dropdown-item" ><span class="glyphicon glyphicon-log-out"></span>&nbsp;
+                            <span>Cerrar sesion</span></a>
+
+                    </ul>
+                </div>
+
+                <div has-authority="ROLE_ADMIN" ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" href="#pk" role="button" aria-haspopup="true" aria-expanded="false"><span>
+                            <span class="glyphicon glyphicon-dashboard"></span>
+                            <span class="hidden-sm">
+                                Desarrolador
+                            </span>
+
+                        </span></a>
+                    <ul class="dropdown-menu dropdown-info" aria-labelledby="dropdownMenuButton">
+                        <li ng-class="{active: vm.$state.includes('account')}"  class="dropdown-header">Modulo de Sericio Tecnico</li>
+                        <a ui-sref="user-management" ng-click="vm.collapseNavbar()" class="dropdown-item" href="#pk"><span class="glyphicon glyphicon-user"></span>&nbsp;
+                            <span>Administracion de usuario</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a ui-sref="jhi-metrics" ng-click="vm.collapseNavbar()" class="dropdown-item" href="#pk"><span class="glyphicon glyphicon-adjust"></span>&nbsp;
+                            <span>Metricas</span></a>
+                        <a ui-sref="jhi-health" ng-click="vm.collapseNavbar()" class="dropdown-item" href="#pk"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                            <span>Salud del sistema</span></a>
+                        <a ui-sref="jhi-configuration" ng-click="vm.collapseNavbar()" class="dropdown-item" href="#pk"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                            <span>Configuracion</span></a>
+                        <a ui-sref="audits" ng-click="vm.collapseNavbar()" class="dropdown-item" href="#pk"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                            <span>Auditar</span></a>
+                        <a ui-sref="logs" ng-click="vm.collapseNavbar()" class="dropdown-item" href="#pk"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                            <span>Logs</span></a>
+                        <a ui-sref="docs" ng-click="vm.collapseNavbar()" class="dropdown-item" href="#pk"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                            <span>API</span></a>
+                        <a href='/h2-console' ng-click="vm.collapseNavbar()" class="dropdown-item" href="#pk"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                            <span>Base de Datos</span></a>
+                    </ul>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+

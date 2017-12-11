@@ -1,22 +1,24 @@
 
-<div>
-    <h2><span>Categoria</span> {{vm.categoria.id}}</h2>
+<div class="espacio container">
+    <h2><span>Categoria</span> {{vm.categoria.descripcion}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
+    <br><br>
     <dl class="dl-horizontal jh-entity-details">
         <dt><span>Descripcion</span></dt>
         <dd>
             <span>{{vm.categoria.descripcion}}</span>
         </dd>
     </dl>
+    <br><br>
 
     <button type="submit"
             ui-sref="{{ vm.previousState }}"
-            class="btn btn-info">
+            class="btn btn-dark ">
         <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Volver</span>
     </button>
 
-    <button type="button" ui-sref="categoria-detail.edit({id:vm.categoria.id})" class="btn btn-primary">
+    <button type="button" ui-sref="categoria-detail.edit({id:vm.categoria.id})" class="btn btn-info pull-right">
         <span class="glyphicon glyphicon-pencil"></span>
         <span class="hidden-sm-down"> Editar</span>
     </button>

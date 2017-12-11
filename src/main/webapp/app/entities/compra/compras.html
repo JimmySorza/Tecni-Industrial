@@ -1,5 +1,6 @@
-<div>
+<div class="espacio container">
     <h2>Compras</h2>
+    <br><br>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
@@ -31,7 +32,7 @@
                         <td>{{compra.fecha | date:'mediumDate'}}</td>
                     <td>{{compra.numero}}</td>
                     <td>
-                        <a ui-sref="proveedor-detail({id:compra.proveedor.id})">{{compra.proveedor.id}}</a>
+                        <a ui-sref="proveedor-detail({id:compra.proveedor.id})">{{compra.proveedor.razonSocial}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

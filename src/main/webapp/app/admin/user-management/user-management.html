@@ -1,4 +1,4 @@
-<div>
+<div class="espacio container">
     <h2>Users</h2>
     <jhi-alert></jhi-alert>
     <div class="row">
@@ -33,7 +33,7 @@
                     <button class="btn btn-success btn-xs" ng-click="vm.setActive(user, false)" ng-show="user.activated"
                             ng-disabled="vm.currentAccount.login === user.login">Activated</button>
                 </td>
-                
+
                 <td>
                     <div ng-repeat="authority in user.authorities">
                         <span class="label label-info">{{ authority }}</span>

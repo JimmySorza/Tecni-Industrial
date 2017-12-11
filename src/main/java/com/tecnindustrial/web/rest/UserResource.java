@@ -92,7 +92,7 @@ public class UserResource {
         log.debug("REST request to save User : {}", userDTO);
 
         if (userDTO.getId() != null) {
-            throw new BadRequestAlertException("A new user cannot already have an ID", "userManagement", "idexists");
+            throw new BadRequestAlertException("El id del usuario ya existe", "userManagement", "idexists");
             // Lowercase the user login before comparing with database
         } else if (userRepository.findOneByLogin(userDTO.getLogin().toLowerCase()).isPresent()) {
             throw new LoginAlreadyUsedException();
@@ -102,7 +102,7 @@ public class UserResource {
             User newUser = userService.createUser(userDTO);
             mailService.sendCreationEmail(newUser);
             return ResponseEntity.created(new URI("/api/users/" + newUser.getLogin()))
-                .headers(HeaderUtil.createAlert( "A user is created with identifier " + newUser.getLogin(), newUser.getLogin()))
+                .headers(HeaderUtil.createAlert( "Un usuario ha sido creado con identificador: " + newUser.getLogin(), newUser.getLogin()))
                 .body(newUser);
         }
     }
@@ -131,7 +131,7 @@ public class UserResource {
         Optional<UserDTO> updatedUser = userService.updateUser(userDTO);
 
         return ResponseUtil.wrapOrNotFound(updatedUser,
-            HeaderUtil.createAlert("A user is updated with identifier " + userDTO.getLogin(), userDTO.getLogin()));
+            HeaderUtil.createAlert("Un usuario ha sido creado con identificador:" + userDTO.getLogin(), userDTO.getLogin()));
     }
 
     /**
@@ -185,6 +185,6 @@ public class UserResource {
     public ResponseEntity<Void> deleteUser(@PathVariable String login) {
         log.debug("REST request to delete User: {}", login);
         userService.deleteUser(login);
-        return ResponseEntity.ok().headers(HeaderUtil.createAlert( "A user is deleted with identifier " + login, login)).build();
+        return ResponseEntity.ok().headers(HeaderUtil.createAlert( "Un usuario ha sido eliminado con identificador: " + login, login)).build();
     }
 }

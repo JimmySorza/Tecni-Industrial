@@ -1,29 +1,30 @@
 
-<div>
-    <h2><span>Compra</span> {{vm.compra.id}}</h2>
+<div class="espacio container">
+    <h2><span>Compra</span> {{vm.compra.numero}}</h2>
+    <br><br>
     <hr>
+
     <jhi-alert-error></jhi-alert-error>
     <dl class="dl-horizontal jh-entity-details">
         <dt><span>Fecha</span></dt>
         <dd>
             <span>{{vm.compra.fecha | date:'mediumDate'}}</span>
         </dd>
-        <dt><span>Numero</span></dt>
-        <dd>
-            <span>{{vm.compra.numero}}</span>
-        </dd>
-        <dt><span>Total</span></dt>
-        <dd>
-            <span>{{vm.totalGeneral()}}</span>
-        </dd>
+
         <dt><span>Proveedor</span></dt>
         <dd>
-            <a ui-sref="proveedor-detail({id:vm.compra.proveedor.id})">{{vm.compra.proveedor.id}}</a>
+            <a ui-sref="proveedor-detail({id:vm.compra.proveedor.id})">{{vm.compra.proveedor.razonSocial}}</a>
         </dd>
+        <hr>
+        <dt><h3><span>Total</span></h3></dt>
+        <dd>
+            <h3 class="pull-right"><span>$ {{vm.totalGeneral()}}</span></h3>
+        </dd>
+        <hr>
     </dl>
 
     <div>
-        <h2>Compra Lineas</h2>
+
         <jhi-alert></jhi-alert>
         <div class="container-fluid">
             <div class="row">
@@ -31,7 +32,7 @@
                     <button class="btn btn-primary" ng-click="vm.crearLinea()" >
                         <span class="glyphicon glyphicon-plus"></span>
                         <span >
-                        Create new Compra Linea
+                        Item
                     </span>
                     </button>
                 </div>
@@ -47,7 +48,7 @@
                     <!--<th><span>Compra</span></th>-->
                     <th><span>Producto</span></th>
                     <th><span>Precio</span></th>
-                     <th><span>Total</span></th>
+                     <th><span>SubTotal</span></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -61,10 +62,10 @@
                         <a ui-sref="producto-detail({id:compraLinea.producto.id})">{{compraLinea.producto.nombre}}</a>
                     </td>
                     <td>
-                        <a ui-sref="producto-detail({id:compraLinea.producto.id})">{{compraLinea.producto.precioCosto}}</a>
+                        <a ui-sref="producto-detail({id:compraLinea.producto.id})">$ {{compraLinea.producto.precioCosto}}</a>
                     </td>
                     <td>
-                        <a ui-sref="producto-detail({id:compraLinea.producto.id})">{{compraLinea.producto.precioCosto*compraLinea.cantidad}}</a>
+                        <a ui-sref="producto-detail({id:compraLinea.producto.id})">$ {{compraLinea.producto.precioCosto*compraLinea.cantidad}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
@@ -98,11 +99,11 @@
     <button type="submit"
             ui-sref="{{ vm.previousState }}"
             class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Volver</span>
     </button>
 
     <button type="button" ui-sref="compra-detail.edit({id:vm.compra.id})" class="btn btn-primary">
         <span class="glyphicon glyphicon-pencil"></span>
-        <span class="hidden-sm-down"> Edit</span>
+        <span class="hidden-sm-down"> Editar</span>
     </button>
 </div>

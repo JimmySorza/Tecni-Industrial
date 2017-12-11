@@ -1,6 +1,7 @@
-<div>
+<div class="espacio container">
     <h2>Productos</h2>
     <jhi-alert></jhi-alert>
+    <br><br>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
@@ -37,7 +38,7 @@
                     <td>{{producto.precioVenta}}</td>
                     <td>{{producto.existencia}}</td>
                     <td>
-                        <a ui-sref="categoria-detail({id:producto.categoria.id})">{{producto.categoria.id}}</a>
+                        <a class="negrilla" ui-sref="categoria-detail({id:producto.categoria.id})">{{producto.categoria.descripcion}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

@@ -1,5 +1,7 @@
-<div>
+<div class="espacio container">
     <h2>Orden de Reparaciones</h2>
+    <hr>
+    <br><br>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
@@ -21,16 +23,12 @@
 
                     <th jh-sort-by="fecha"><span>Fecha</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="garantia"><span>Garantia</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cliente.id"><span>Cliente</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="maquina"><span>Maquina</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="falla"><span>Falla</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="fechaPrometido"><span>Fecha Prometido</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="accesorios"><span>Accesorios</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="observaciones"><span>Observaciones</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="informeTecnico"><span>Informe Tecnico</span> <span class="glyphicon glyphicon-sort"></span></th>
-
                     <th jh-sort-by="tecnico.id"><span>Tecnico</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="estado.id"><span>Estado</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="cliente.id"><span>Cliente</span> <span class="glyphicon glyphicon-sort"></span></th>
+
                     <th></th>
                 </tr>
             </thead>
@@ -39,22 +37,18 @@
 
                         <td>{{ordenReparacion.fecha | date:'mediumDate'}}</td>
                     <td>{{ordenReparacion.garantia}}</td>
+                    <td>
+                        <a ui-sref="cliente-detail({id:ordenReparacion.cliente.id})">{{ordenReparacion.cliente.nombre}}</a>
+                    </td>
                     <td>{{ordenReparacion.maquina}}</td>
-                    <td>{{ordenReparacion.falla}}</td>
-                        <td>{{ordenReparacion.fechaPrometido | date:'mediumDate'}}</td>
-                    <td>{{ordenReparacion.accesorios}}</td>
-                    <td>{{ordenReparacion.observaciones}}</td>
-                    <td>{{ordenReparacion.informeTecnico}}</td>
+                    <td>{{ordenReparacion.fechaPrometido | date:'mediumDate'}}</td>
+                    <td>
+                        {{ordenReparacion.tecnico.nombre}}
+                    </td>
+                    <td>
+                        {{ordenReparacion.estado.nombre}}
+                    </td>
 
-                    <td>
-                        <a ui-sref="tecnico-detail({id:ordenReparacion.tecnico.id})">{{ordenReparacion.tecnico.id}}</a>
-                    </td>
-                    <td>
-                        <a ui-sref="estado-detail({id:ordenReparacion.estado.id})">{{ordenReparacion.estado.id}}</a>
-                    </td>
-                    <td>
-                        <a ui-sref="cliente-detail({id:ordenReparacion.cliente.id})">{{ordenReparacion.cliente.id}}</a>
-                    </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
