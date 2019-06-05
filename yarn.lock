@@ -2276,10 +2276,10 @@ eslint-config-angular@0.5.0:
   resolved "https://registry.yarnpkg.com/eslint-config-angular/-/eslint-config-angular-0.5.0.tgz#e0aae0132e39e7467df3f7547fec81a44d3685c4"
   integrity sha1-4KrgEy4550Z98/dUf+yBpE02hcQ=
 
-eslint-plugin-angular@2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-angular/-/eslint-plugin-angular-2.2.1.tgz#2fe426808d675114c5d78c8b25642499053cae92"
-  integrity sha1-L+QmgI1nURTF14yLJWQkmQU8rpI=
+eslint-plugin-angular@2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-angular/-/eslint-plugin-angular-2.5.0.tgz#bac77e7d05c50e8356d6f7d8f6ed2fe1b4fe536d"
+  integrity sha1-usd+fQXFDoNW1vfY9u0v4bT+U20=
 
 eslint@^3.0.0:
   version "3.19.0"
