@@ -117,6 +117,13 @@ amdefine@>=0.0.4:
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
   integrity sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU=
 
+ansi-colors@^1.0.1:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-1.1.0.tgz#6374b4dd5d4718ff3ce27a671a3b1cad077132a9"
+  integrity sha512-SFKX67auSNoVR38N3L+nvsPjOE0bybKTYbkf5tRvushrAPQ9V75huw0ZxBkKVeRU9kqH3d6HA4xTckbwZ4ixmA==
+  dependencies:
+    ansi-wrap "^0.1.0"
+
 ansi-escapes@^1.1.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/ansi-escapes/-/ansi-escapes-1.4.0.tgz#d3a8a83b319aa67793662b13e761c7911422306e"
@@ -161,7 +168,7 @@ ansi-styles@^3.1.0, ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
-ansi-wrap@0.1.0:
+ansi-wrap@0.1.0, ansi-wrap@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/ansi-wrap/-/ansi-wrap-0.1.0.tgz#a82250ddb0015e9a27ca82e82ea603bbfa45efaf"
   integrity sha1-qCJQ3bABXponyoLoLqYDu/pF768=
@@ -2374,11 +2381,6 @@ esprima@2.7.x, esprima@^2.6.0, esprima@^2.7.1:
   resolved "https://registry.yarnpkg.com/esprima/-/esprima-2.7.3.tgz#96e3b70d5779f6ad49cd032673d1c312767ba581"
   integrity sha1-luO3DVd59q1JzQMmc9HDEnZ7pYE=
 
-esprima@^1.2.2:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/esprima/-/esprima-1.2.5.tgz#0993502feaf668138325756f30f9a51feeec11e9"
-  integrity sha1-CZNQL+r2aBODJXVvMPmlH+7sEek=
-
 esprima@^4.0.0, esprima@~4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/esprima/-/esprima-4.0.1.tgz#13b04cdb3e6c5d19df91ab6987a8695619b0aa71"
@@ -2398,7 +2400,7 @@ esrecurse@^4.1.0:
   dependencies:
     estraverse "^4.1.0"
 
-estraverse@^1.5.1, estraverse@^1.9.1:
+estraverse@^1.9.1:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/estraverse/-/estraverse-1.9.3.tgz#af67f2dc922582415950926091a4005d29c9bb44"
   integrity sha1-r2fy3JIlgkFZUJJgkaQAXSnJu0Q=
@@ -2452,7 +2454,7 @@ event-stream@3.3.2:
     stream-combiner "~0.0.4"
     through "~2.3.1"
 
-event-stream@3.3.5, event-stream@^3.1.0, event-stream@^3.1.1, event-stream@^3.3.1:
+event-stream@3.3.5, event-stream@^3.1.0, event-stream@^3.3.1:
   version "3.3.5"
   resolved "https://registry.yarnpkg.com/event-stream/-/event-stream-3.3.5.tgz#e5dd8989543630d94c6cf4d657120341fa31636b"
   integrity sha512-vyibDcu5JL20Me1fP734QBH/kenBGLZap2n0+XXM7mvuUPzJ20Ydqj1aKcIeMdri1p+PU+4yAKugjN8KCVst+g==
@@ -3440,15 +3442,15 @@ growly@^1.2.0:
   resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
   integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
 
-gulp-angular-filesort@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/gulp-angular-filesort/-/gulp-angular-filesort-1.1.1.tgz#a08cff5ad5b3a18554f30b4d4e5d8895272cb242"
-  integrity sha1-oIz/WtWzoYVU8wtNTl2IlScsskI=
+gulp-angular-filesort@1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/gulp-angular-filesort/-/gulp-angular-filesort-1.2.1.tgz#9f4e34183982537a031e0fc6518d63c4ed6c68dc"
+  integrity sha512-KkB43Uof1JI7qVEBq5tAILoMbBrxSZyhOgirtVKvwXhXRspqfytR6tcGpdlxHAsQ3edLuyjpA3c6o5zhSAmbOA==
   dependencies:
-    event-stream "^3.1.1"
-    gulp-util "^3.0.0"
-    ng-dependencies "~0.2.0"
-    toposort "~0.2.10"
+    ng-dependencies "^0.8.1"
+    plugin-error "^1.0.1"
+    through2 "^2.0.0"
+    toposort "^1.0.0"
 
 gulp-angular-templatecache@2.0.0:
   version "2.0.0"
@@ -5481,7 +5483,7 @@ lodash@4.17.4:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
   integrity sha1-eCA6TRwyiuHYbcpkYONptX9AVa4=
 
-lodash@^3.0.1, lodash@^3.2.0, lodash@^3.3.1, lodash@^3.8.0, lodash@^3.9.3:
+lodash@^3.2.0, lodash@^3.3.1, lodash@^3.8.0, lodash@^3.9.3:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
   integrity sha1-W/Rejkm6QYnhfUgnid/RW9FAt7Y=
@@ -6035,14 +6037,14 @@ ng-annotate@^1.2.1:
     stringset "~0.2.1"
     tryor "~0.1.2"
 
-ng-dependencies@~0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/ng-dependencies/-/ng-dependencies-0.2.0.tgz#193b5bdca54c386e01076530f4fab78c72a8c5cc"
-  integrity sha1-GTtb3KVMOG4BB2Uw9Pq3jHKoxcw=
+ng-dependencies@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/ng-dependencies/-/ng-dependencies-0.8.1.tgz#18fd6332c702e0f3e374a36fe1ed455c6752bb68"
+  integrity sha1-GP1jMscC4PPjdKNv4e1FXGdSu2g=
   dependencies:
-    esprima "^1.2.2"
-    estraverse "^1.5.1"
-    lodash "^3.0.1"
+    esprima "^2.6.0"
+    estraverse "^4.2.0"
+    lodash "^4.0.0"
 
 nice-try@^1.0.4:
   version "1.0.5"
@@ -6769,6 +6771,16 @@ pinkie@^2.0.0:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
+
+plugin-error@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/plugin-error/-/plugin-error-1.0.1.tgz#77016bd8919d0ac377fdcdd0322328953ca5781c"
+  integrity sha512-L1zP0dk7vGweZME2i+EeakvUNqSrdiI3F91TwEoYiGrAfUXmVv6fJIq4g82PAXxNsWOp0J7ZqQy/3Szz0ajTxA==
+  dependencies:
+    ansi-colors "^1.0.1"
+    arr-diff "^4.0.0"
+    arr-union "^3.1.0"
+    extend-shallow "^3.0.2"
 
 plur@^2.0.0:
   version "2.1.2"
@@ -8706,10 +8718,10 @@ toidentifier@1.0.0:
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.0.tgz#7e1be3470f1e77948bc43d94a3c8f4d7752ba553"
   integrity sha512-yaOH/Pk/VEhBWWTlhI+qXxDFXlejDGcQipMlyxda9nthulaxLZUNcUqFxokp0vcYnvteJln5FNQDRrxj3YcbVw==
 
-toposort@~0.2.10:
-  version "0.2.12"
-  resolved "https://registry.yarnpkg.com/toposort/-/toposort-0.2.12.tgz#c7d2984f3d48c217315cc32d770888b779491e81"
-  integrity sha1-x9KYTz1IwhcxXMMtdwiIt3lJHoE=
+toposort@^1.0.0:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/toposort/-/toposort-1.0.7.tgz#2e68442d9f64ec720b8cc89e6443ac6caa950029"
+  integrity sha1-LmhELZ9k7HILjMieZEOsbKqVACk=
 
 tough-cookie@^2.0.0:
   version "2.5.0"
