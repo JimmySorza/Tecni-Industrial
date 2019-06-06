@@ -3653,15 +3653,15 @@ gulp-natural-sort@0.1.1:
     natural-compare-lite "^1.0.0"
     through "^2.3.4"
 
-gulp-ng-annotate@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/gulp-ng-annotate/-/gulp-ng-annotate-2.0.0.tgz#84a83db1f016520bd70f9a5cfa9f3fe89e25a205"
-  integrity sha1-hKg9sfAWUgvXD5pc+p8/6J4logU=
+gulp-ng-annotate@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/gulp-ng-annotate/-/gulp-ng-annotate-2.1.0.tgz#50bd207b4403bbc8f0efd01bcedb2cc8c04a928b"
+  integrity sha512-wjazOa5qE83akCih+lK2a0LFvkLbIMeblxr54ofmc3WKJ3Ipx/BM98ZCtCDfQW/008EVUSRqwfEjFKEEGI0QbA==
   dependencies:
     bufferstreams "^1.1.0"
-    gulp-util "^3.0.7"
     merge "^1.2.0"
     ng-annotate "^1.2.1"
+    plugin-error "^0.1.2"
     through2 "^2.0.1"
     vinyl-sourcemaps-apply "^0.2.1"
 
