@@ -58,7 +58,7 @@
         <frontend-maven-plugin.version>1.7.6</frontend-maven-plugin.version>
         <gatling-maven-plugin.version>2.2.4</gatling-maven-plugin.version>
         <jacoco-maven-plugin.version>0.8.4</jacoco-maven-plugin.version>
-        <scala-maven-plugin.version>3.2.2</scala-maven-plugin.version>
+        <scala-maven-plugin.version>3.4.6</scala-maven-plugin.version>
         <sonar-maven-plugin.version>3.2</sonar-maven-plugin.version>
 
         <!-- Sonar properties -->
