@@ -3162,10 +3162,10 @@ gauge@~2.7.3:
     strip-ansi "^3.0.1"
     wide-align "^1.1.0"
 
-generator-jhipster@6.1.1:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/generator-jhipster/-/generator-jhipster-6.1.1.tgz#4d8bc14311c928a461564cdf3f0a4e46d28249b2"
-  integrity sha512-ZDGpVLJ6RTLXgivMxvuxq/BaRl/6Sd7h7yXhc6OoRsiPDHSUJFRJfkk7U5J5UxBipj4zflsFN+I+fmBa4QBnXA==
+generator-jhipster@6.1.2:
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/generator-jhipster/-/generator-jhipster-6.1.2.tgz#8b2feabb2cc42353492a4148189deb940806879d"
+  integrity sha512-JUZaCPsJODHPyysRdyDmK2rs2jzxBEAnmkNmyyxwu941oYLjTFyiYKn5XNGSXdYYvPIs1er1cc8btl+43lisJg==
   dependencies:
     axios "0.19.0"
     chalk "2.4.2"
