@@ -15,7 +15,7 @@
     "eslint-config-angular": "0.5.0",
     "eslint-plugin-angular": "4.0.1",
     "event-stream": "4.0.1",
-    "generator-jhipster": "6.1.2",
+    "generator-jhipster": "6.2.0",
     "gulp": "4.0.2",
     "gulp-angular-filesort": "1.2.1",
     "gulp-angular-templatecache": "3.0.0",
