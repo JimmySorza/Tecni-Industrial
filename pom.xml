@@ -35,7 +35,7 @@
         <spring-boot.version>2.1.8.RELEASE</spring-boot.version>
         <!-- The hibernate version should match the one managed by
         https://mvnrepository.com/artifact/io.github.jhipster/jhipster-dependencies/${jhipster-dependencies.version} -->
-        <hibernate.version>5.4.4.Final</hibernate.version>
+        <hibernate.version>5.4.7.Final</hibernate.version>
         <!-- The javassist version should match the one managed by
         https://mvnrepository.com/artifact/org.hibernate/hibernate-core/${hibernate.version} -->
         <javassist.version>3.25.0-GA</javassist.version>
